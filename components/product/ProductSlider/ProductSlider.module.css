@@ -5,7 +5,7 @@
 
 .leftControl,
 .rightControl {
-  @apply absolute top-1/2 -translate-x-1/2 z-20 w-12 h-12 flex items-center justify-center bg-hover-1 rounded-full;
+  @apply hidden;
 }
 
 .leftControl:hover,
@@ -23,7 +23,7 @@
   background-image: url('public/cursor-left.png');
 
   @screen md {
-    @apply left-6;
+    @apply hidden;
   }
 
   @screen sm {
@@ -35,13 +35,7 @@
   @apply bg-cover;
   background-image: url('public/cursor-right.png');
 
-  @screen md {
-    @apply right-6;
-  }
-
-  @screen sm {
-    @apply hidden;
-  }
+  display: hidden;
 }
 
 .control {
