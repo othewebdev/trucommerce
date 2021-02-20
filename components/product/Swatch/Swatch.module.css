@@ -1,23 +1,20 @@
 .root {
-  @apply h-12 w-12 bg-primary text-primary rounded-full mr-3 inline-flex
+  @apply h-12 w-12 mx-4 my-2 bg-primary text-primary   inline-flex
   items-center justify-center cursor-pointer transition duration-150 ease-in-out
-  p-0 shadow-none border-gray-200 border box-border;
-
+  p-2 shadow-none;
+  height: auto;
+  width: auto;
   & > span {
     @apply absolute;
   }
 
   &:hover {
-    @apply transform scale-110 bg-hover;
+    @apply transform scale-110;
   }
 }
 
 .color {
-  @apply text-black transition duration-150 ease-in-out;
-
-  &:hover {
-    @apply text-black;
-  }
+  @apply text-red transition duration-150 ease-in-out;
 
   &.dark,
   &.dark:hover {

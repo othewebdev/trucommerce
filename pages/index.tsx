@@ -1,8 +1,7 @@
 import rangeMap from '@lib/range-map'
 import { Layout } from '@components/common'
 import { ProductCard } from '@components/product'
-import { Grid, Marquee, Hero } from '@components/ui'
-import HomeAllProductsGrid from '@components/common/HomeAllProductsGrid'
+import { Announcement, Grid, Footer, Hero } from '@components/ui'
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 
 import { getConfig } from '@framework/api'
@@ -84,66 +83,50 @@ export default function Home({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <div>
-      <Grid>
+      <Announcement
+        bg="bg-black"
+        text="text-white"
+        description="
+        GET 15% OFF GOLDFISH CRACKERS USING CODE: PXKSJAI2
+        "
+      />
+      <Hero
+        bg="bg-white"
+        text="text-black"
+        headline="Tired Of Trying To Fit In?"
+        headlineTwo=" Truley Stand Out."
+      />
+      <Grid layout="normal">
         {featured.slice(0, 3).map(({ node }, i) => (
           <ProductCard
             key={node.path}
             product={node}
-            imgWidth={i === 0 ? 1080 : 540}
-            imgHeight={i === 0 ? 1080 : 540}
+            imgWidth={i === 0 ? 668 : 442}
+            imgHeight={i === 0 ? 668 : 442}
             imgPriority
             imgLoading="eager"
           />
         ))}
-      </Grid>
-      <Marquee variant="secondary">
-        {bestSelling.slice(3, 6).map(({ node }) => (
-          <ProductCard
-            key={node.path}
-            product={node}
-            variant="slim"
-            imgWidth={320}
-            imgHeight={320}
-            imgLayout="fixed"
-          />
-        ))}
-      </Marquee>
-      <Hero
-        headline="Release Details: The Yeezy BOOST 350 V2 ‘Natural'"
-        description="
-        The Yeezy BOOST 350 V2 lineup continues to grow. We recently had the
-        ‘Carbon’ iteration, and now release details have been locked in for
-        this ‘Natural’ joint. Revealed by Yeezy Mafia earlier this year, the
-        shoe was originally called ‘Abez’, which translated to ‘Tin’ in
-        Hebrew. It’s now undergone a name change, and will be referred to as
-        ‘Natural’."
-      />
-      <Grid layout="B">
         {featured.slice(3, 6).map(({ node }, i) => (
           <ProductCard
             key={node.path}
             product={node}
-            imgWidth={i === 1 ? 1080 : 540}
-            imgHeight={i === 1 ? 1080 : 540}
+            imgWidth={i === 1 ? 668 : 442}
+            imgHeight={i === 1 ? 668 : 442}
           />
         ))}
       </Grid>
-      <Marquee>
-        {bestSelling.slice(0, 3).map(({ node }) => (
-          <ProductCard
-            key={node.path}
-            product={node}
-            variant="slim"
-            imgWidth={320}
-            imgHeight={320}
-            imgLayout="fixed"
-          />
-        ))}
-      </Marquee>
-      <HomeAllProductsGrid
-        categories={categories}
-        brands={brands}
-        newestProducts={newestProducts}
+      <Footer
+        bg="bg-black"
+        text="text-white"
+        headline="Protecting The World At All Costs."
+        description="
+        Chambray kinfolk adaptogen, seitan neutra organic brunch 
+        asymmetrical normcore paleo man bun single-origin coffee 
+        DIY gluten-free. YOLO bespoke palo santo aesthetic slow-carb. 
+        Cray tumblr lomo, mumblecore literally roof party ramps plaid 
+        enamel pin tousled selfies. 
+        "
       />
     </div>
   )

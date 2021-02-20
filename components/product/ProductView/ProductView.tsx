@@ -1,22 +1,19 @@
-import { FC, useState } from 'react'
-import cn from 'classnames'
-import Image from 'next/image'
-import { NextSeo } from 'next-seo'
-
-import s from './ProductView.module.css'
-import { useUI } from '@components/ui/context'
-import { Swatch, ProductSlider } from '@components/product'
+import { ProductSlider, Swatch } from '@components/product'
 import { Button, Container, Text } from '@components/ui'
-
-import usePrice from '@framework/use-price'
-import useAddItem from '@framework/cart/use-add-item'
+import { useUI } from '@components/ui/context'
 import type { ProductNode } from '@framework/api/operations/get-product'
+import useAddItem from '@framework/cart/use-add-item'
+import usePrice from '@framework/use-price'
+import cn from 'classnames'
+import { NextSeo } from 'next-seo'
+import Image from 'next/image'
+import { FC, useState } from 'react'
 import {
   getCurrentVariant,
   getProductOptions,
   SelectedOptions,
 } from '../helpers'
-import WishlistButton from '@components/wishlist/WishlistButton'
+import s from './ProductView.module.css'
 
 interface Props {
   className?: string
@@ -34,6 +31,7 @@ const ProductView: FC<Props> = ({ product }) => {
   const { openSidebar } = useUI()
   const options = getProductOptions(product)
   const [loading, setLoading] = useState(false)
+  const [readMore, setReadMore] = useState(false)
   const [choices, setChoices] = useState<SelectedOptions>({
     size: null,
     color: null,
@@ -54,6 +52,8 @@ const ProductView: FC<Props> = ({ product }) => {
       setLoading(false)
     }
   }
+
+  console.log(choices)
 
   return (
     <Container className="max-w-none w-full" clean>
@@ -76,15 +76,6 @@ const ProductView: FC<Props> = ({ product }) => {
       />
       <div className={cn(s.root, 'fit')}>
         <div className={cn(s.productDisplay, 'fit')}>
-          <div className={s.nameBox}>
-            <h1 className={s.name}>{product.name}</h1>
-            <div className={s.price}>
-              {price}
-              {` `}
-              {product.prices?.price.currencyCode}
-            </div>
-          </div>
-
           <div className={s.sliderContainer}>
             <ProductSlider key={product.entityId}>
               {product.images.edges?.map((image, i) => (
@@ -96,7 +87,7 @@ const ProductView: FC<Props> = ({ product }) => {
                     width={1050}
                     height={1050}
                     priority={i === 0}
-                    quality="85"
+                    quality="100"
                   />
                 </div>
               ))}
@@ -106,37 +97,55 @@ const ProductView: FC<Props> = ({ product }) => {
 
         <div className={s.sidebar}>
           <section>
+            <div className={s.nameBox}>
+              <h1 className={s.name}>{product.name}</h1>
+              <div className={s.price}>
+                {price}
+                {` `}
+                {product.prices?.price.currencyCode}
+              </div>
+            </div>
             {options?.map((opt: any) => (
               <div className="pb-4" key={opt.displayName}>
                 <h2 className="uppercase font-medium">{opt.displayName}</h2>
-                <div className="flex flex-row py-4">
+                <div className="flex flex-wrap items-center py-2">
                   {opt.values.map((v: any, i: number) => {
                     const active = (choices as any)[opt.displayName]
-
                     return (
-                      <Swatch
-                        key={`${v.entityId}-${i}`}
-                        active={v.label === active}
-                        variant={opt.displayName}
-                        color={v.hexColors ? v.hexColors[0] : ''}
-                        label={v.label}
-                        onClick={() => {
-                          setChoices((choices) => {
-                            return {
-                              ...choices,
-                              [opt.displayName]: v.label,
-                            }
-                          })
-                        }}
-                      />
+                      <>
+                        <Swatch
+                          key={`${v.entityId}-${i}`}
+                          active={v.label === active}
+                          variant={opt.displayName}
+                          color={v.hexColors ? v.hexColors[0] : ''}
+                          label={v.label}
+                          onClick={() => {
+                            setChoices((choices) => {
+                              return {
+                                ...choices,
+                                [opt.displayName]: v.label,
+                              }
+                            })
+                          }}
+                        />
+                      </>
                     )
                   })}
                 </div>
               </div>
             ))}
 
-            <div className="pb-14 break-words w-full max-w-xl">
-              <Text html={product.description} />
+            <div className="pb-14 break-words w-full">
+              <Text
+                html={
+                  readMore
+                    ? product.description
+                    : `${product.description.substring(0, 600)}...`
+                }
+              />
+              <button onClick={() => setReadMore(!readMore)}>
+                {readMore ? '... Show Less' : 'Read More...'}
+              </button>
             </div>
           </section>
           <div>
@@ -152,12 +161,6 @@ const ProductView: FC<Props> = ({ product }) => {
             </Button>
           </div>
         </div>
-
-        <WishlistButton
-          className={s.wishlistButton}
-          productId={product.entityId}
-          variant={product.variants.edges?.[0]!}
-        />
       </div>
     </Container>
   )

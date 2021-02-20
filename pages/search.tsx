@@ -182,107 +182,6 @@ export default function Search({
               </div>
             </div>
           </div>
-
-          {/* Designs */}
-          <div className="relative inline-block w-full">
-            <div className="lg:hidden mt-3">
-              <span className="rounded-md shadow-sm">
-                <button
-                  type="button"
-                  onClick={(e) => handleClick(e, 'brands')}
-                  className="flex justify-between w-full rounded-sm border border-gray-300 px-4 py-3 bg-white text-sm leading-5 font-medium text-gray-900 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150"
-                  id="options-menu"
-                  aria-haspopup="true"
-                  aria-expanded="true"
-                >
-                  {activeBrand?.name
-                    ? `Design: ${activeBrand?.name}`
-                    : 'All Designs'}
-                  <svg
-                    className="-mr-1 ml-2 h-5 w-5"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                </button>
-              </span>
-            </div>
-            <div
-              className={`origin-top-left absolute lg:relative left-0 mt-2 w-full rounded-md shadow-lg lg:shadow-none z-10 mb-10 lg:block ${
-                activeFilter !== 'brands' || toggleFilter !== true
-                  ? 'hidden'
-                  : ''
-              }`}
-            >
-              <div className="rounded-sm bg-white shadow-xs lg:bg-none lg:shadow-none">
-                <div
-                  role="menu"
-                  aria-orientation="vertical"
-                  aria-labelledby="options-menu"
-                >
-                  <ul>
-                    <li
-                      className={cn(
-                        'block text-sm leading-5 text-gray-700 lg:text-base lg:no-underline lg:font-bold lg:tracking-wide hover:bg-gray-100 lg:hover:bg-transparent hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900',
-                        {
-                          underline: !activeBrand?.name,
-                        }
-                      )}
-                    >
-                      <Link
-                        href={{
-                          pathname: getDesignerPath('', category),
-                          query,
-                        }}
-                      >
-                        <a
-                          onClick={(e) => handleClick(e, 'brands')}
-                          className={
-                            'block lg:inline-block px-4 py-2 lg:p-0 lg:my-2 lg:mx-4'
-                          }
-                        >
-                          All Designers
-                        </a>
-                      </Link>
-                    </li>
-                    {brands.flatMap(({ node }) => (
-                      <li
-                        key={node.path}
-                        className={cn(
-                          'block text-sm leading-5 text-gray-700 hover:bg-gray-100 lg:hover:bg-transparent hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900',
-                          {
-                            underline: activeBrand?.entityId === node.entityId,
-                          }
-                        )}
-                      >
-                        <Link
-                          href={{
-                            pathname: getDesignerPath(node.path, category),
-                            query,
-                          }}
-                        >
-                          <a
-                            onClick={(e) => handleClick(e, 'brands')}
-                            className={
-                              'block lg:inline-block px-4 py-2 lg:p-0 lg:my-2 lg:mx-4'
-                            }
-                          >
-                            {node.name}
-                          </a>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
         {/* Products */}
         <div className="col-span-8 order-3 lg:order-none">
@@ -311,12 +210,14 @@ export default function Search({
                   >
                     {q ? (
                       <>
-                        There are no products that match "<strong>{q}</strong>"
+                        Unable to Find Product "<strong>{q}</strong>"
                       </>
                     ) : (
                       <>
-                        There are no products that match the selected category &
-                        designer
+                        Category not found.
+                        <br />
+                        <br />
+                        View All Products Below:
                       </>
                     )}
                   </span>
@@ -339,8 +240,8 @@ export default function Search({
                   key={node.path}
                   className="animated fadeIn"
                   product={node}
-                  imgWidth={480}
-                  imgHeight={480}
+                  imgWidth={640}
+                  imgHeight={640}
                 />
               ))}
             </Grid>

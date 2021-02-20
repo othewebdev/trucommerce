@@ -1,61 +1,52 @@
 .root {
-  @apply relative max-h-full w-full box-border overflow-hidden
-  bg-no-repeat bg-center bg-cover transition-transform
-  ease-linear cursor-pointer;
+  @apply relative max-h-full w-full box-border overflow-hidden bg-no-repeat bg-center bg-cover transition-transform ease-linear cursor-pointer;
   height: 100% !important;
-
   &:hover {
     & .squareBg:before {
       transform: scale(0.98);
     }
-
     & .productImage {
-      transform: scale(1.2625);
+      transform: scale(1.0625);
     }
-
     & .productTitle > span,
     & .productPrice,
     & .wishlistButton {
       @apply bg-secondary text-secondary;
     }
-
     &:nth-child(6n + 1) .productTitle > span,
     &:nth-child(6n + 1) .productPrice,
     &:nth-child(6n + 1) .wishlistButton {
-      @apply bg-violet text-white;
+      @apply text-white;
+      background-color: #065173;
     }
-
     &:nth-child(6n + 5) .productTitle > span,
     &:nth-child(6n + 5) .productPrice,
     &:nth-child(6n + 5) .wishlistButton {
-      @apply bg-blue text-white;
+      @apply text-white;
+      background-color: #138abf;
     }
-
     &:nth-child(6n + 3) .productTitle > span,
     &:nth-child(6n + 3) .productPrice,
     &:nth-child(6n + 3) .wishlistButton {
-      @apply bg-pink text-white;
+      @apply text-white;
+      background-color: #c0010c;
     }
-
     &:nth-child(6n + 6) .productTitle > span,
     &:nth-child(6n + 6) .productPrice,
     &:nth-child(6n + 6) .wishlistButton {
-      @apply bg-cyan text-white;
+      @apply text-white;
+      background-color: #730b1b;
     }
   }
-
   &:nth-child(6n + 1) .squareBg {
-    @apply bg-violet;
+    @apply bg-black;
   }
-
   &:nth-child(6n + 5) .squareBg {
     @apply bg-blue;
   }
-
   &:nth-child(6n + 3) .squareBg {
     @apply bg-pink;
   }
-
   &:nth-child(6n + 6) .squareBg {
     @apply bg-cyan;
   }
@@ -84,16 +75,13 @@
     @apply bg-accents-0 !important;
     background-image: url('/bg-products.svg');
   }
-
   & .productTitle {
     @apply pt-2;
     font-size: 1rem;
-
     & span {
       @apply leading-extra-loose;
     }
   }
-
   & .productPrice {
     @apply text-sm;
   }
@@ -101,15 +89,22 @@
 
 .productTitle {
   @apply pt-0 max-w-full w-full leading-extra-loose;
-  font-size: 2rem;
   letter-spacing: 0.4px;
-
   & span {
     @apply py-4 px-6 bg-primary text-primary font-bold;
     font-size: inherit;
     letter-spacing: inherit;
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
+  }
+  @screen sm {
+    font-size: 1rem;
+  }
+  @screen md {
+    font-size: 1.25rem;
+  }
+  @screen lg {
+    font-size: 1.5rem;
   }
 }
 
@@ -119,13 +114,12 @@
 }
 
 .wishlistButton {
-  @apply w-10 h-10 flex ml-auto items-center justify-center bg-primary text-primary font-semibold  text-xs leading-6 cursor-pointer;
+  @apply w-10 h-10 flex ml-auto items-center justify-center bg-primary text-primary font-semibold text-xs leading-6 cursor-pointer;
 }
 
 .imageContainer {
   @apply flex items-center justify-center;
   overflow: hidden;
-
   & > div {
     min-width: 100%;
   }

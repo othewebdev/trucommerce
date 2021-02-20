@@ -1,0 +1,6 @@
+.root {
+  @apply mx-auto grid grid-cols-1 px-4 py-4 gap-4;
+  @screen lg {
+    @apply px-0;
+  }
+}

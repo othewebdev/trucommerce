@@ -46,12 +46,12 @@ const ProductCard: FC<Props> = ({
         {variant === 'slim' ? (
           <div className="relative overflow-hidden box-border">
             <div className="absolute inset-0 flex items-center justify-end mr-8 z-20">
-              <span className="bg-black text-white inline-block p-3 font-bold text-xl break-words">
+              <span className="bg-black text-white inline-block p-3 font-light text-xl break-words">
                 {p.name}
               </span>
             </div>
             <Image
-              quality="85"
+              quality="100"
               width={imgWidth}
               sizes={imgSizes}
               height={imgHeight}
@@ -72,15 +72,10 @@ const ProductCard: FC<Props> = ({
                 </h3>
                 <span className={s.productPrice}>{price}</span>
               </div>
-              <WishlistButton
-                className={s.wishlistButton}
-                productId={p.entityId}
-                variant={p.variants.edges?.[0]!}
-              />
             </div>
             <div className={s.imageContainer}>
               <Image
-                quality="85"
+                quality="100"
                 src={src}
                 alt={p.name}
                 className={s.productImage}

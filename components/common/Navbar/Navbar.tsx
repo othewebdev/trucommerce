@@ -33,7 +33,10 @@ const Navbar: FC = () => {
                 <Logo />
               </a>
             </Link>
-            <nav className="hidden ml-6 space-x-4 lg:block">
+            <nav className="hidden ml-4 space-x-2 lg:block">
+              <Link href="/search">
+                <a className={s.link}>Products</a>
+              </Link>
               <Link href="/search">
                 <a className={s.link}>FAQ</a>
               </Link>
