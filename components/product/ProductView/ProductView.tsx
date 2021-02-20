@@ -97,9 +97,9 @@ const ProductView: FC<Props> = ({ product }) => {
 
         <div className={s.sidebar}>
           <section>
-            <div className={s.nameBox}>
-              <h1 className={s.name}>{product.name}</h1>
-              <div className={s.price}>
+            <div>
+              <h1 className="text-2xl">{product.name}</h1>
+              <div className="text-4xl">
                 {price}
                 {` `}
                 {product.prices?.price.currencyCode}
@@ -107,8 +107,10 @@ const ProductView: FC<Props> = ({ product }) => {
             </div>
             {options?.map((opt: any) => (
               <div className="pb-4" key={opt.displayName}>
-                <h2 className="uppercase font-medium">{opt.displayName}</h2>
-                <div className="flex flex-wrap items-center py-2">
+                <h2 className="capitalize font-light">
+                  Choose a {opt.displayName}:
+                </h2>
+                <div className="flex flex-wrap items-center  py-2">
                   {opt.values.map((v: any, i: number) => {
                     const active = (choices as any)[opt.displayName]
                     return (
