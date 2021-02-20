@@ -25,14 +25,13 @@ const Footer: FC<Props> = ({ className, pages }) => {
   return (
     <footer className={rootClassName}>
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 border-b border-accents-2 py-12 text-primary bg-primary transition-colors duration-150">
+        <div className="grid px-4 grid-cols-1 lg:grid-cols-2 gap-8 border-b border-accents-2 py-12 text-primary bg-primary transition-colors duration-150">
           <div className="col-span-1 lg:col-span-2">
             <Link href="/">
               <a className="flex flex-initial items-center font-bold md:mr-24">
-                <span className=" mr-4">
+                <span className=" mr-4 ">
                   <Logo />
                 </span>
-                <span>Truley Unique</span>
               </a>
             </Link>
           </div>
@@ -45,20 +44,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
                   </a>
                 </Link>
               </li>
-              <li className="py-3 md:py-0 md:pb-4">
-                <Link href="/faq">
-                  <a className="text-primary hover:text-accents-6 transition ease-in-out duration-150">
-                    FAQ
-                  </a>
-                </Link>
-              </li>
-              <li className="py-3 md:py-0 md:pb-4">
-                <Link href="/contact">
-                  <a className="text-primary hover:text-accents-6 transition ease-in-out duration-150">
-                    Contact
-                  </a>
-                </Link>
-              </li>
+
               {sitePages.map((page) => (
                 <li key={page.url} className="py-3 md:py-0 md:pb-4">
                   <Link href={page.url!}>
