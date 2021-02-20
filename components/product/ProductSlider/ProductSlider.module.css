@@ -25,6 +25,10 @@
   @screen md {
     @apply left-6;
   }
+
+  @screen sm {
+    @apply hidden;
+  }
 }
 
 .rightControl {
@@ -33,6 +37,10 @@
 
   @screen md {
     @apply right-6;
+  }
+
+  @screen sm {
+    @apply hidden;
   }
 }
 
