@@ -27,7 +27,7 @@
 }
 
 .layoutNormal {
-  @apply gap-3;
+  @apply grid-rows-1 gap-3 py-4;
 }
 
 .layoutA {
