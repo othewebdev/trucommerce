@@ -39,7 +39,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
             <ul className="flex flex-initial flex-col md:flex-1">
               <li className="py-3 md:py-0 md:pb-4">
                 <Link href="/">
-                  <a className="text-primary hover:text-accents-6 transition ease-in-out duration-150">
+                  <a className="text-primary hover:text-accents-6 transition font-light ease-in-out duration-150">
                     Home
                   </a>
                 </Link>
@@ -48,7 +48,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
               {sitePages.map((page) => (
                 <li key={page.url} className="py-3 md:py-0 md:pb-4">
                   <Link href={page.url!}>
-                    <a className="text-primary hover:text-accents-6 transition ease-in-out duration-150">
+                    <a className="text-primary hover:text-accents-6 transition font-light ease-in-out duration-150">
                       {page.name}
                     </a>
                   </Link>
@@ -61,7 +61,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
               {legalPages.map((page) => (
                 <li key={page.url} className="py-3 md:py-0 md:pb-4">
                   <Link href={page.url!}>
-                    <a className="text-primary hover:text-accents-6 transition ease-in-out duration-150">
+                    <a className="text-primary hover:text-accents-6 transition font-light ease-in-out duration-150">
                       {page.name}
                     </a>
                   </Link>
