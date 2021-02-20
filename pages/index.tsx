@@ -87,7 +87,7 @@ export default function Home({
         bg="bg-black"
         text="text-white"
         description="
-        GET 15% OFF GOLDFISH CRACKERS USING CODE: PXKSJAI2
+        WELCOME TO TRULEY UNIQUE.
         "
       />
       <Hero
@@ -121,11 +121,7 @@ export default function Home({
         text="text-white"
         headline="Protecting The World At All Costs."
         description="
-        Chambray kinfolk adaptogen, seitan neutra organic brunch 
-        asymmetrical normcore paleo man bun single-origin coffee 
-        DIY gluten-free. YOLO bespoke palo santo aesthetic slow-carb. 
-        Cray tumblr lomo, mumblecore literally roof party ramps plaid 
-        enamel pin tousled selfies. 
+        Our face masks are hand sewn and come with a pocket for medical grade filter material. Need adjustments? Each mask comes with 3D printed strap adjusters so you never have to worry about mask comfort. Getting fog on your glasses? Our masks contour to your face so no air can escape where it's not supposed too. We've got you covered.
         "
       />
     </div>
