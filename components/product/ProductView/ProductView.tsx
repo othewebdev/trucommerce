@@ -119,7 +119,7 @@ const ProductView: FC<Props> = ({ product }) => {
                       <>
                         <Swatch
                           key={`${v.entityId}-${i}`}
-                          active={v.label === active}
+                          active={i === active}
                           variant={opt.displayName}
                           color={v.hexColors ? v.hexColors[0] : ''}
                           label={v.label}
@@ -127,7 +127,7 @@ const ProductView: FC<Props> = ({ product }) => {
                             setChoices((choices) => {
                               return {
                                 ...choices,
-                                [opt.displayName]: v.label && i,
+                                [opt.displayName]: i,
                               }
                             })
                           }}
