@@ -84,10 +84,10 @@ export default function Home({
   return (
     <div>
       <Announcement
-        bg="#c30014"
-        text="text-white"
+        text="#c30014"
+        bg="#fff"
         description="
-        WELCOME TO TRULEY UNIQUE.
+        GET %15 OFF APPLE PIE  |  USE CODE: PV9SN1M
         "
       />
       <Hero

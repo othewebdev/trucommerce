@@ -15,7 +15,9 @@ const Announcement: FC<Props> = ({ description, bg, text }) => {
       <Container>
         <div className={s.root}>
           <div className=" text-center ">
-            <p className={` leading-7 text-accent-2 ${text}`}>{description}</p>
+            <p style={{ color: text }} className={` leading-7 text-accent-2 `}>
+              {description}
+            </p>
           </div>
         </div>
       </Container>
