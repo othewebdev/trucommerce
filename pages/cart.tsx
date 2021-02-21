@@ -52,7 +52,7 @@ export default function Cart() {
               Your cart is empty
             </h2>
             <p className="text-accents-6 px-10 text-center pt-2">
-              Biscuit oat cake wafer icing ice cream tiramisu pudding cupcake.
+              The cart is hungry. It needs products!
             </p>
           </div>
         ) : error ? (
@@ -87,17 +87,6 @@ export default function Cart() {
                 />
               ))}
             </ul>
-            <div className="my-6">
-              <Text>
-                Before you leave, take a look at these items. We picked them
-                just for you
-              </Text>
-              <div className="flex py-6 space-x-6">
-                {[1, 2, 3, 4, 5, 6].map((x) => (
-                  <div className="border border-accents-3 w-full h-24 bg-accents-2 bg-opacity-50 transform cursor-pointer hover:scale-110 duration-75" />
-                ))}
-              </div>
-            </div>
           </div>
         )}
       </div>
