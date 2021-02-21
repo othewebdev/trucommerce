@@ -33,8 +33,8 @@ const ProductView: FC<Props> = ({ product }) => {
   const [loading, setLoading] = useState(false)
   const [readMore, setReadMore] = useState(false)
   const [choices, setChoices] = useState<SelectedOptions>({
-    size: null,
-    color: null,
+    size: 0,
+    color: 0,
   })
   const variant =
     getCurrentVariant(product, choices) || product.variants.edges?.[0]

@@ -1,8 +1,8 @@
 import type { ProductNode } from '@framework/api/operations/get-product'
 
 export type SelectedOptions = {
-  size: string | null
-  color: string | null
+  size: number
+  color: number
 }
 
 export type ProductOption = {
@@ -40,7 +40,7 @@ export function getCurrentVariant(product: ProductNode, opts: SelectedOptions) {
           edge.node.displayName.toLowerCase() === key
         ) {
           return edge.node.values.edges?.find(
-            (valueEdge) => valueEdge?.node.label === value
+            (valueEdge) => valueEdge?.node.label
           )
         }
       })
