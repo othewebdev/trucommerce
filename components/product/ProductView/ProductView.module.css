@@ -81,3 +81,15 @@
     @apply right-12 text-white bg-violet;
   }
 }
+
+.link {
+  @apply inline-flex items-center text-primary leading-6 font-light transition ease-in-out duration-75 cursor-pointer text-accents-6;
+}
+
+.link:hover {
+  @apply text-accents-9;
+}
+
+.link:focus {
+  @apply outline-none text-accents-8;
+}

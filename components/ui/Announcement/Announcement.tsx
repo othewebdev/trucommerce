@@ -11,7 +11,7 @@ interface Props {
 
 const Announcement: FC<Props> = ({ description, bg, text }) => {
   return (
-    <div className={bg}>
+    <div style={{ backgroundColor: bg }}>
       <Container>
         <div className={s.root}>
           <div className=" text-center ">

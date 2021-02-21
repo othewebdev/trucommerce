@@ -21,7 +21,8 @@
   @apply pt-0 max-w-full w-full;
   letter-spacing: 0.25px;
   & span {
-    @apply bg-black  transform transition-transform duration-500 px-2 py-2 text-white;
+    @apply transform transition-transform duration-500 px-2 py-2 text-white;
+    background-color: #c30014;
     font-size: inherit;
   }
   margin: auto;
@@ -29,7 +30,8 @@
 }
 
 .productPrice {
-  @apply py-4 px-2 bg-black text-white font-medium inline-block text-2xl leading-6;
+  @apply py-4 px-2  bg-white font-medium inline-block text-3xl leading-6;
+  color: #c30014;
   letter-spacing: 0.4px;
 }
 

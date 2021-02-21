@@ -84,7 +84,7 @@ export default function Home({
   return (
     <div>
       <Announcement
-        bg="bg-black"
+        bg="#c30014"
         text="text-white"
         description="
         WELCOME TO TRULEY UNIQUE.

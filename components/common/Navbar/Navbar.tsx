@@ -26,7 +26,7 @@ const Navbar: FC = () => {
   return (
     <div className={cn(s.root, { 'shadow-magical': hasScrolled })}>
       <Container>
-        <div className="relative flex flex-row justify-between py-4 align-center md:py-6">
+        <div className="relative px-2 flex flex-row justify-between py-4 align-center md:py-6">
           <div className="flex items-center flex-1">
             <Link href="/">
               <a className={s.logo} aria-label="Logo">

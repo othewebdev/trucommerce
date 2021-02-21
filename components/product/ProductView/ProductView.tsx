@@ -5,7 +5,6 @@ import type { ProductNode } from '@framework/api/operations/get-product'
 import useAddItem from '@framework/cart/use-add-item'
 import usePrice from '@framework/use-price'
 import cn from 'classnames'
-import { ArrowLeft, RightArrow } from '../../icons'
 import { NextSeo } from 'next-seo'
 import Image from 'next/image'
 import { FC, useState } from 'react'
@@ -54,8 +53,6 @@ const ProductView: FC<Props> = ({ product }) => {
     }
   }
 
-  console.log(choices)
-
   return (
     <Container className="max-w-none w-full" clean>
       <NextSeo
@@ -99,8 +96,8 @@ const ProductView: FC<Props> = ({ product }) => {
         <div className={s.sidebar}>
           <section>
             <div>
-              <h1 className="text-2xl">{product.name}</h1>
-              <div className="text-4xl">
+              <h1 className="text-2xl text-center">{product.name}</h1>
+              <div className="text-4xl font-semibold text-center">
                 {price}
                 {` `}
                 {product.prices?.price.currencyCode}
@@ -108,10 +105,10 @@ const ProductView: FC<Props> = ({ product }) => {
             </div>
             {options?.map((opt: any) => (
               <div className="pb-4" key={opt.displayName}>
-                <h2 className="capitalize font-light">
+                <h2 className="capitalize text-center font-light">
                   Choose a {opt.displayName}:
                 </h2>
-                <div className="flex flex-wrap items-center  py-2">
+                <div className="flex flex-wrap justify-center text-center py-2">
                   {opt.values.map((v: any, i: number) => {
                     const active = (choices as any)[opt.displayName]
                     return (
@@ -143,7 +140,7 @@ const ProductView: FC<Props> = ({ product }) => {
                 html={
                   readMore
                     ? product.description
-                    : `${product.description.substring(0, 600)}...`
+                    : `${product.description.substring(0, 425)}...`
                 }
               />
               <button onClick={() => setReadMore(!readMore)}>
