@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import type { Page } from '@framework/api/operations/get-all-pages'
 import getSlug from '@lib/get-slug'
 import { Othewebdev } from '@components/icons'
-import { Logo, Container } from '@components/ui'
+import { LogoAlt, Container } from '@components/ui'
 import { I18nWidget } from '@components/common'
 
 interface Props {
@@ -30,7 +30,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
             <Link href="/">
               <a className="flex flex-initial items-center font-bold md:mr-24">
                 <span className=" mr-4 ">
-                  <Logo />
+                  <LogoAlt />
                 </span>
               </a>
             </Link>
