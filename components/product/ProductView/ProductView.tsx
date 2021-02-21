@@ -41,10 +41,14 @@ const ProductView: FC<Props> = ({ product }) => {
 
   const addToCart = async () => {
     setLoading(true)
+    console.log(product.variants.edges)
+    console.log(choices)
+
     try {
       await addItem({
         productId: product.entityId,
-        variantId: product.variants.edges?.[0]?.node.entityId!,
+        variantId: product.variants.edges?.[choices.size || choices.color]?.node
+          .entityId!,
       })
       openSidebar()
       setLoading(false)
@@ -123,7 +127,7 @@ const ProductView: FC<Props> = ({ product }) => {
                             setChoices((choices) => {
                               return {
                                 ...choices,
-                                [opt.displayName]: v.label,
+                                [opt.displayName]: i,
                               }
                             })
                           }}
