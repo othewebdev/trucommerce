@@ -61,6 +61,12 @@ module.exports = {
       scale: {
         120: '1.2',
       },
+      spacing: {
+        72: '18rem',
+        84: '21rem',
+        96: '24rem',
+        200: '200px',
+      },
     },
   },
   plugins: [require('@tailwindcss/ui')],

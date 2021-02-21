@@ -33,10 +33,7 @@ const Navbar: FC = () => {
                 <Logo />
               </a>
             </Link>
-            <nav
-              className=" ml-4 space-x-2 sm:block lg:block"
-              style={{ width: 200 }}
-            >
+            <nav className="w-200 ml-4 space-x-2 sm:block lg:block">
               <Link href="/search">
                 <a className={s.link}>Products</a>
               </Link>
