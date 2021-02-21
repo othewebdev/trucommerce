@@ -14,7 +14,7 @@
 }
 
 .color {
-  @apply text-red transition duration-150 ease-in-out;
+  @apply border-accents-4  border-2 text-red transition duration-150 ease-in-out;
 
   &.dark,
   &.dark:hover {

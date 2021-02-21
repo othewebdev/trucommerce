@@ -127,7 +127,7 @@ const ProductView: FC<Props> = ({ product }) => {
                             setChoices((choices) => {
                               return {
                                 ...choices,
-                                [opt.displayName]: i,
+                                [opt.displayName]: v.label,
                               }
                             })
                           }}
