@@ -43,7 +43,7 @@ export async function getStaticProps({
   // We prefer to do the computation at buildtime/servertime
   const { featured, bestSelling } = (() => {
     // Create a copy of products that we can mutate
-    const products = [...newestProducts]
+    const products = [...featuredProducts]
     // If the lists of featured and best selling products don't have enough
     // products, then fill them with products from the products list, this
     // is useful for new commerce sites that don't have a lot of products
