@@ -17,7 +17,7 @@ export async function getStaticProps({
 
   // Get Featured Products
   const { products: featuredProducts } = await getAllProducts({
-    variables: { field: 'featuredProducts', first: 6 },
+    variables: { field: 'featuredProducts', first: 12 },
     config,
     preview,
   })
@@ -83,13 +83,6 @@ export default function Home({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <div>
-      <Announcement
-        text="#c30014"
-        bg="#fff"
-        description="
-        GET %15 OFF APPLE PIE  |  USE CODE: PV9SN1M
-        "
-      />
       <Hero
         bg="bg-white"
         text="text-black"
@@ -97,7 +90,7 @@ export default function Home({
         headlineTwo=" Truley Stand Out."
       />
       <Grid layout="normal">
-        {featured.slice(0, 3).map(({ node }, i) => (
+        {featured.slice(0, 6).map(({ node }, i) => (
           <ProductCard
             key={node.path}
             product={node}
@@ -105,14 +98,6 @@ export default function Home({
             imgHeight={i === 0 ? 668 : 442}
             imgPriority
             imgLoading="eager"
-          />
-        ))}
-        {featured.slice(3, 6).map(({ node }, i) => (
-          <ProductCard
-            key={node.path}
-            product={node}
-            imgWidth={i === 1 ? 668 : 442}
-            imgHeight={i === 1 ? 668 : 442}
           />
         ))}
       </Grid>
