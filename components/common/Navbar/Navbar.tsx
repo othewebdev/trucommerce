@@ -1,7 +1,7 @@
 import { FC, useState, useEffect } from 'react'
 import Link from 'next/link'
 import s from './Navbar.module.css'
-import { Logo, Container } from '@components/ui'
+import { Logo, LogoAlt, Container } from '@components/ui'
 import { Searchbar, UserNav } from '@components/common'
 import cn from 'classnames'
 import throttle from 'lodash.throttle'
@@ -30,10 +30,28 @@ const Navbar: FC = () => {
       <Container>
         <div className="relative px-2 flex flex-row justify-between py-4 align-center md:py-6">
           <div className="flex items-center flex-1">
-            <div className="toggle" onClick={() => setIsOpen(!isOpen)}>
-              <a className={s.logo} aria-label="Logo">
-                <Logo />
-              </a>
+            <div className=" sm:block md:hidden lg:hidden">
+              {isOpen ? (
+                <div onClick={() => setIsOpen(!isOpen)}>
+                  <a className={s.logo} aria-label="Logo">
+                    <Logo />
+                  </a>
+                </div>
+              ) : (
+                <div onClick={() => setIsOpen(!isOpen)}>
+                  <a className={s.logo} aria-label="Logo">
+                    <LogoAlt />
+                  </a>
+                </div>
+              )}
+            </div>
+
+            <div className=" hidden md:block lg:block">
+              <div onClick={() => setIsOpen(!isOpen)}>
+                <a className={s.logo} href="/" aria-label="Logo">
+                  <Logo />
+                </a>
+              </div>
             </div>
 
             <nav className="w-200 ml-4 hidden space-x-2 md:block lg:block">
