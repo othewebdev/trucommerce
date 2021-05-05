@@ -12,7 +12,7 @@ interface Props {
 
 const Footer: FC<Props> = ({ headline, description, bg, text }) => {
   return (
-    <div className={bg}>
+    <div className="mx-4" style={{ backgroundColor: bg }}>
       <Container>
         <div className={s.root}>
           <h2

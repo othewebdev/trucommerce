@@ -76,9 +76,10 @@ export default function Home({
       <Hero
         bg="bg-white"
         text="text-black"
-        headline="Tired Of Trying To Fit In?"
-        headlineTwo=" Truley Stand Out."
+        headline="Truley Unique"
+        description="face masks, earrings, organizers and more!"
       />
+
       <Grid className="px-4" layout="normal">
         {newestProducts.slice(0, 6).map(({ node }, i) => (
           <ProductCard
@@ -92,7 +93,7 @@ export default function Home({
         ))}
       </Grid>
       <Footer
-        bg="bg-black"
+        bg="#c1000c"
         text="text-white"
         headline="Protecting The World At All Costs."
         description="
