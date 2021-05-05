@@ -41,9 +41,6 @@ const ProductView: FC<Props> = ({ product }) => {
 
   const addToCart = async () => {
     setLoading(true)
-    console.log(product.variants.edges)
-    console.log(choices)
-
     try {
       await addItem({
         productId: product.entityId,
@@ -56,8 +53,6 @@ const ProductView: FC<Props> = ({ product }) => {
       setLoading(false)
     }
   }
-  console.log(product)
-
   return (
     <Container className="max-w-none w-full" clean>
       <NextSeo
