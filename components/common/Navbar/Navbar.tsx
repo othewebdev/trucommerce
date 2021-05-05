@@ -31,19 +31,11 @@ const Navbar: FC = () => {
         <div className="relative px-2 flex flex-row justify-between py-4 align-center md:py-6">
           <div className="flex items-center flex-1">
             <div className=" sm:block md:hidden lg:hidden">
-              {isOpen ? (
-                <div onClick={() => setIsOpen(!isOpen)}>
-                  <a className={s.logo} aria-label="Logo">
-                    <Logo />
-                  </a>
-                </div>
-              ) : (
-                <div onClick={() => setIsOpen(!isOpen)}>
-                  <a className={s.logo} aria-label="Logo">
-                    <LogoAlt />
-                  </a>
-                </div>
-              )}
+              <div onClick={() => setIsOpen(!isOpen)}>
+                <a className={s.logo} aria-label="Logo">
+                  <Logo />
+                </a>
+              </div>
             </div>
 
             <div className=" hidden md:block lg:block">
