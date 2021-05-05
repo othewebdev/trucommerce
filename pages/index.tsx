@@ -83,7 +83,7 @@ export default function Home({
         headline="Tired Of Trying To Fit In?"
         headlineTwo=" Truley Stand Out."
       />
-      <Grid layout="normal">
+      <Grid className="px-4" layout="normal">
         {featured.slice(0, 6).map(({ node }, i) => (
           <ProductCard
             key={node.path}
