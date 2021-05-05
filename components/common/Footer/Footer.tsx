@@ -83,8 +83,8 @@ const Footer: FC<Props> = ({ className, pages }) => {
             <span className="text-primary">Developed by</span>
             <a
               rel="noopener"
-              href="https://otheweb.dev"
-              aria-label="Visit Otheweb.dev"
+              href="https://www.otheweb.dev"
+              aria-label="Visit The Developers Site"
               target="_blank"
               className="text-primary"
             >
