@@ -92,14 +92,6 @@ export default function Home({
           />
         ))}
       </Grid>
-      <Footer
-        bg="#c1000c"
-        text="text-white"
-        headline="Protecting The World At All Costs."
-        description="
-        Our face masks are hand sewn and come with a pocket for medical grade filter material. Need adjustments? Each mask comes with 3D printed strap adjusters so you never have to worry about mask comfort. Getting fog on your glasses? Our masks contour to your face so no air can escape where it's not supposed too. We've got you covered.
-        "
-      />
     </div>
   )
 }
