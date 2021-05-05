@@ -15,7 +15,7 @@ const Hero: FC<Props> = ({ headline, description, bg, text }) => {
   return (
     <div className={bg}>
       <Container>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr' }}>
+        <div className="gridContainer">
           <div
             style={{
               display: 'flex',
@@ -25,18 +25,17 @@ const Hero: FC<Props> = ({ headline, description, bg, text }) => {
           >
             <Butterfly />
           </div>
-
           <div style={{ textAlign: 'left' }} className={s.root}>
             <h2
               style={{ textTransform: 'capitalize', lineHeight: '3.5rem' }}
-              className={`md:text-6xl lg:text-6xl text-4xl text-center font-bold   ${text}`}
+              className={`text-6xl text-center font-bold   ${text}`}
             >
               {headline}
             </h2>
             <div className="flex flex-col justify-between">
               <h2
                 style={{ textTransform: 'capitalize', lineHeight: '2rem' }}
-                className={`text-sm md:text-lg lg:text-lg font-medium text-center ${text}`}
+                className={`text-lg font-medium text-center ${text}`}
               >
                 {description}
               </h2>
