@@ -69,10 +69,6 @@ export async function getStaticProps({
 const nonNullable = (v: any) => v
 
 export default function Home({
-  featured,
-  bestSelling,
-  brands,
-  categories,
   newestProducts,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
@@ -84,7 +80,7 @@ export default function Home({
         headlineTwo=" Truley Stand Out."
       />
       <Grid className="px-4" layout="normal">
-        {featured.slice(0, 6).map(({ node }, i) => (
+        {newestProducts.slice(0, 6).map(({ node }, i) => (
           <ProductCard
             key={node.path}
             product={node}
