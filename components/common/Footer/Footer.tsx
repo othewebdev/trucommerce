@@ -93,7 +93,6 @@ const Footer: FC<Props> = ({ className, pages }) => {
                 alt="Othewebdev Logo"
               />
             </a>
-            <I18nWidget />
           </div>
         </div>
       </Container>
