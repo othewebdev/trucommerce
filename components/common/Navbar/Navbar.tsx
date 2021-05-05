@@ -8,6 +8,7 @@ import throttle from 'lodash.throttle'
 
 const Navbar: FC = () => {
   const [hasScrolled, setHasScrolled] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = throttle(() => {
@@ -28,11 +29,12 @@ const Navbar: FC = () => {
       <Container>
         <div className="relative px-2 flex flex-row justify-between py-4 align-center md:py-6">
           <div className="flex items-center flex-1">
-            <Link href="/">
+            <div className="toggle" onClick={() => setIsOpen(!isOpen)}>
               <a className={s.logo} aria-label="Logo">
                 <Logo />
               </a>
-            </Link>
+            </div>
+
             <nav className="w-200 ml-4 hidden space-x-2 md:block lg:block">
               <Link href="/search">
                 <a className={s.link}>Products</a>
@@ -54,7 +56,30 @@ const Navbar: FC = () => {
             <UserNav />
           </div>
         </div>
-
+        <div className={isOpen ? `${s.content}` : `${s.contentShow}`}>
+          <nav className="flex w-full flex-col mb-4 items-center sm:block md:hidden lg:hidden">
+            <Link href="/">
+              <a onClick={() => setIsOpen(!isOpen)} className={s.mobilelink}>
+                Home
+              </a>
+            </Link>
+            <Link href="/search">
+              <a onClick={() => setIsOpen(!isOpen)} className={s.mobilelink}>
+                Products
+              </a>
+            </Link>
+            <Link href="/en-US/faq">
+              <a onClick={() => setIsOpen(!isOpen)} className={s.mobilelink}>
+                FAQ
+              </a>
+            </Link>
+            <Link href="/en-US/contact">
+              <a onClick={() => setIsOpen(!isOpen)} className={s.mobilelink}>
+                Contact
+              </a>
+            </Link>
+          </nav>
+        </div>
         <div className="flex pb-4 lg:px-6 lg:hidden">
           <Searchbar id="mobile-search" />
         </div>

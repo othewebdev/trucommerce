@@ -6,11 +6,23 @@
   @apply inline-flex items-center text-primary leading-6 font-light transition ease-in-out duration-75 cursor-pointer text-accents-6;
 }
 
+.mobilelink {
+  @apply inline-flex items-center my-2 text-primary leading-6 font-light transition ease-in-out duration-75 cursor-pointer text-accents-6;
+}
+
 .link:hover {
   @apply text-accents-9;
 }
 
+.mobilelink:hover {
+  @apply text-accents-9;
+}
+
 .link:focus {
+  @apply outline-none text-accents-8;
+}
+
+.mobilelink:focus {
   @apply outline-none text-accents-8;
 }
 
@@ -20,4 +32,15 @@
   &:hover {
     transform: scale(1.1);
   }
+}
+
+.content {
+  display: none;
+  height: 0px;
+  transition: height ease 0.3s;
+}
+
+.contentShow {
+  display: flex;
+  flex-direction: column;
 }

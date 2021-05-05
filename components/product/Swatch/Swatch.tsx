@@ -34,6 +34,7 @@ const Swatch: FC<Props & ButtonProps> = ({
     },
     className
   )
+  console.log(variant)
 
   return (
     <Button
@@ -47,6 +48,7 @@ const Swatch: FC<Props & ButtonProps> = ({
           <Check />
         </span>
       )}
+      {variant === 'product option' ? label : null}
       {variant === 'size' ? label : null}
     </Button>
   )

@@ -56,6 +56,7 @@ const ProductView: FC<Props> = ({ product }) => {
       setLoading(false)
     }
   }
+  console.log(product)
 
   return (
     <Container className="max-w-none w-full" clean>

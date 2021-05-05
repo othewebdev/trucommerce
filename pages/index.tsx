@@ -39,14 +39,8 @@ export async function getStaticProps({
   const { categories, brands } = await getSiteInfo({ config, preview })
   const { pages } = await getAllPages({ config, preview })
 
-  // These are the products that are going to be displayed in the landing.
-  // We prefer to do the computation at buildtime/servertime
   const { featured, bestSelling } = (() => {
-    // Create a copy of products that we can mutate
     const products = [...featuredProducts]
-    // If the lists of featured and best selling products don't have enough
-    // products, then fill them with products from the products list, this
-    // is useful for new commerce sites that don't have a lot of products
     return {
       featured: rangeMap(6, (i) => featuredProducts[i] ?? products.shift())
         .filter(nonNullable)
