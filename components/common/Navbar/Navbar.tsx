@@ -11,6 +11,7 @@ const Navbar: FC = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
+    setIsOpen(!isOpen)
     const handleScroll = throttle(() => {
       const offset = 0
       const { scrollTop } = document.documentElement

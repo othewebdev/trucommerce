@@ -39,8 +39,6 @@ async function writeDefinitions() {
     })
 
     await promises.writeFile(destination, definition)
-
-    console.log(`✔️ Added definitions for: ${dest}`)
   })
 
   await Promise.all(ops)

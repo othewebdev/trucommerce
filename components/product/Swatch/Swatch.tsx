@@ -34,7 +34,6 @@ const Swatch: FC<Props & ButtonProps> = ({
     },
     className
   )
-  console.log(variant)
 
   return (
     <Button
