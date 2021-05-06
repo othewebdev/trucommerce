@@ -63,7 +63,9 @@ const Navbar: FC = () => {
             <Searchbar />
           </div>
           <div className="flex justify-center flex-1  sm:block md:hidden lg:hidden ">
-            <h3 className="text-xl font-light">Truley Unique</h3>
+            <a href="/" className="text-xl font-light">
+              Truley Unique
+            </a>
           </div>
           <div className="flex justify-end flex-1 space-x-8">
             <UserNav />
