@@ -1,12 +1,13 @@
-import { ProductSlider, Swatch } from '@components/product'
+import { Swatch } from '@components/product'
 import { Button, Container, Text } from '@components/ui'
 import { useUI } from '@components/ui/context'
 import type { ProductNode } from '@framework/api/operations/get-product'
 import useAddItem from '@framework/cart/use-add-item'
 import usePrice from '@framework/use-price'
 import cn from 'classnames'
+import Lightbox from 'react-image-lightbox'
+import 'react-image-lightbox/style.css'
 import { NextSeo } from 'next-seo'
-import Image from 'next/image'
 import { FC, useState } from 'react'
 import {
   getCurrentVariant,
@@ -14,6 +15,7 @@ import {
   SelectedOptions,
 } from '../helpers'
 import s from './ProductView.module.css'
+import { Modal } from '@components/common'
 
 interface Props {
   className?: string
@@ -32,10 +34,13 @@ const ProductView: FC<Props> = ({ product }) => {
   const options = getProductOptions(product)
   const [loading, setLoading] = useState(false)
   const [readMore, setReadMore] = useState(false)
+  let [imageURL, setImageURL] = useState('')
   const [choices, setChoices] = useState<SelectedOptions>({
     size: 0,
     color: 0,
   })
+  console.log(imageURL)
+
   const variant =
     getCurrentVariant(product, choices) || product.variants.edges?.[0]
 
@@ -65,31 +70,33 @@ const ProductView: FC<Props> = ({ product }) => {
           images: [
             {
               url: product.images.edges?.[0]?.node.urlOriginal!,
-              width: 800,
-              height: 600,
               alt: product.name,
             },
           ],
         }}
       />
-      <div className={cn(s.root, 'fit')}>
-        <div className={cn(s.productDisplay, 'fit')}>
+      {imageURL && <Modal imageSrc={imageURL} setImageURL={setImageURL} />}
+      <div className={cn(s.root)}>
+        <div className={cn(s.productDisplay)}>
           <div className={s.sliderContainer}>
-            <ProductSlider key={product.entityId}>
+            {product.images.edges?.slice(0, 1).map((image) => (
+              <div className={s.selectedImageContainer}>
+                <img
+                  onClick={() => setImageURL(image?.node.urlOriginal)}
+                  src={image?.node.urlOriginal!}
+                />
+              </div>
+            ))}
+            <div className={s.thumbImageContainer}>
               {product.images.edges?.map((image, i) => (
-                <div key={image?.node.urlOriginal} className={s.imageContainer}>
-                  <Image
-                    className={s.img}
+                <div key={image?.node.urlOriginal}>
+                  <img
+                    onClick={() => setImageURL(image?.node.urlOriginal)}
                     src={image?.node.urlOriginal!}
-                    alt={image?.node.altText || 'Product Image'}
-                    width={1050}
-                    height={1050}
-                    priority={i === 0}
-                    quality="100"
                   />
                 </div>
               ))}
-            </ProductSlider>
+            </div>
           </div>
         </div>
 
@@ -135,7 +142,7 @@ const ProductView: FC<Props> = ({ product }) => {
               </div>
             ))}
 
-            <div className="pb-14 break-words w-full">
+            <div className="pb-14 break-words sm:block md:hidden lg:hidden w-full">
               <Text
                 html={
                   readMore
@@ -146,6 +153,9 @@ const ProductView: FC<Props> = ({ product }) => {
               <button onClick={() => setReadMore(!readMore)}>
                 {readMore ? '... Show Less' : 'Read More...'}
               </button>
+            </div>
+            <div className="pb-14 break-words hidden sm:hidden md:block lg:block w-full">
+              <Text html={product.description} />
             </div>
           </section>
           <div>
