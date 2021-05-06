@@ -1,3 +1,4 @@
+import { Modal } from '@components/common'
 import { Swatch } from '@components/product'
 import { Button, Container, Text } from '@components/ui'
 import { useUI } from '@components/ui/context'
@@ -5,17 +6,15 @@ import type { ProductNode } from '@framework/api/operations/get-product'
 import useAddItem from '@framework/cart/use-add-item'
 import usePrice from '@framework/use-price'
 import cn from 'classnames'
-import Lightbox from 'react-image-lightbox'
-import 'react-image-lightbox/style.css'
 import { NextSeo } from 'next-seo'
 import { FC, useState } from 'react'
+import 'react-image-lightbox/style.css'
 import {
   getCurrentVariant,
   getProductOptions,
   SelectedOptions,
 } from '../helpers'
 import s from './ProductView.module.css'
-import { Modal } from '@components/common'
 
 interface Props {
   className?: string
@@ -39,8 +38,6 @@ const ProductView: FC<Props> = ({ product }) => {
     size: 0,
     color: 0,
   })
-  console.log(imageURL)
-
   const variant =
     getCurrentVariant(product, choices) || product.variants.edges?.[0]
 
@@ -82,7 +79,7 @@ const ProductView: FC<Props> = ({ product }) => {
             {product.images.edges?.slice(0, 1).map((image) => (
               <div className={s.selectedImageContainer}>
                 <img
-                  onClick={() => setImageURL(image?.node.urlOriginal)}
+                  onClick={() => setImageURL(image?.node.urlOriginal!)}
                   src={image?.node.urlOriginal!}
                 />
               </div>
@@ -91,7 +88,7 @@ const ProductView: FC<Props> = ({ product }) => {
               {product.images.edges?.map((image, i) => (
                 <div key={image?.node.urlOriginal}>
                   <img
-                    onClick={() => setImageURL(image?.node.urlOriginal)}
+                    onClick={() => setImageURL(image?.node.urlOriginal!)}
                     src={image?.node.urlOriginal!}
                   />
                 </div>
