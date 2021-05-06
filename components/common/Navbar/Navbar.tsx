@@ -73,11 +73,6 @@ const Navbar: FC = () => {
         </div>
         <div className={isOpen ? `${s.content}` : `${s.contentShow}`}>
           <nav className="flex w-full flex-col mb-4 items-center sm:block md:hidden lg:hidden">
-            <Link href="/">
-              <a onClick={() => setIsOpen(!isOpen)} className={s.mobilelink}>
-                Home
-              </a>
-            </Link>
             <Link href="/search">
               <a onClick={() => setIsOpen(!isOpen)} className={s.mobilelink}>
                 Products
