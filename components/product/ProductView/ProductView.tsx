@@ -8,7 +8,6 @@ import usePrice from '@framework/use-price'
 import cn from 'classnames'
 import { NextSeo } from 'next-seo'
 import { FC, useState } from 'react'
-import 'react-image-lightbox/style.css'
 import {
   getCurrentVariant,
   getProductOptions,
