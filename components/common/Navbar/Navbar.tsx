@@ -1,7 +1,7 @@
 import { FC, useState, useEffect } from 'react'
 import Link from 'next/link'
 import s from './Navbar.module.css'
-import { Logo, LogoAlt, Container } from '@components/ui'
+import { Logo, MenuBars, Container } from '@components/ui'
 import { Searchbar, UserNav } from '@components/common'
 import cn from 'classnames'
 import throttle from 'lodash.throttle'
@@ -28,12 +28,12 @@ const Navbar: FC = () => {
   return (
     <div className={cn(s.root, { 'shadow-magical': hasScrolled })}>
       <Container>
-        <div className="relative px-2 flex flex-row justify-between py-4 align-center md:py-6">
+        <div className="relative px-2 grid grid-cols-3 justify-between py-4 align-center md:py-6">
           <div className="flex items-center flex-1">
             <div className=" sm:block md:hidden lg:hidden">
               <div onClick={() => setIsOpen(!isOpen)}>
                 <a className={s.logo} aria-label="Logo">
-                  <Logo />
+                  <MenuBars />
                 </a>
               </div>
             </div>
@@ -62,7 +62,9 @@ const Navbar: FC = () => {
           <div className="justify-center flex-1 hidden lg:flex">
             <Searchbar />
           </div>
-
+          <div className="flex justify-center flex-1  sm:block md:hidden lg:hidden ">
+            <h3 className="text-xl font-light">Truley Unique</h3>
+          </div>
           <div className="flex justify-end flex-1 space-x-8">
             <UserNav />
           </div>
