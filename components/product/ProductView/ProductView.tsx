@@ -159,7 +159,7 @@ const ProductView: FC<Props> = ({ product }) => {
                 {readMore ? '... Show Less' : 'Read More...'}
               </button>
             </div>
-            <div className="pb-14 break-words hidden sm:hidden md:block lg:block w-full">
+            <div className="pb-14 break-words hidden sm:hidden md:hidden lg:block w-full">
               <Text html={product.description} />
             </div>
           </section>

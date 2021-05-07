@@ -80,6 +80,10 @@
   border-radius: 3px;
 }
 
+.thumbImageContainer Image {
+  border: 1px solid black;
+}
+
 .thumbImage {
   margin: 5px;
 }
