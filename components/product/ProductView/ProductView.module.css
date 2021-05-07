@@ -132,9 +132,14 @@
 .button {
   text-align: center;
   width: 100%;
+  transition: ease-in-out all 100ms;
   @screen sm {
     min-width: 400px;
   }
+}
+
+.button:hover {
+  background-color: #f01927;
 }
 
 .wishlistButton {
