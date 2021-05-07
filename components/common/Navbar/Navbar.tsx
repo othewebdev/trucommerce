@@ -28,7 +28,7 @@ const Navbar: FC = () => {
   return (
     <div className={cn(s.root, { 'shadow-magical': hasScrolled })}>
       <Container>
-        <div className="relative px-4 grid grid-cols-3 justify-between py-4 align-center md:py-6">
+        <div className="relative px-4 grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 justify-between py-4 align-center md:py-6">
           <div className="flex items-center flex-1">
             <div className=" sm:block md:hidden lg:hidden">
               <div onClick={() => setIsOpen(!isOpen)}>

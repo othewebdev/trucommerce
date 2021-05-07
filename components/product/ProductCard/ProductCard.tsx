@@ -65,14 +65,7 @@ const ProductCard: FC<Props> = ({
         ) : (
           <>
             <div />
-            <div className="flex flex-row justify-between box-border absolute z-20">
-              <div>
-                <h3 className={s.productTitle}>
-                  <span>{p.name}</span>
-                </h3>
-                <span className={s.productPrice}>{price}</span>
-              </div>
-            </div>
+            <div className="flex flex-row justify-between box-border absolute z-20"></div>
             <div className={s.imageContainer}>
               <Image
                 quality="100"
@@ -86,6 +79,12 @@ const ProductCard: FC<Props> = ({
                 loading={imgLoading}
                 priority={imgPriority}
               />
+            </div>
+            <div className={s.productInfoBox}>
+              <h3 className={s.productTitle}>
+                <span>{p.name}</span>
+              </h3>
+              <span className={s.productPrice}>{price}</span>
             </div>
           </>
         )}

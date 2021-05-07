@@ -18,6 +18,7 @@
     margin-left: -2rem;
     @apply mx-0 col-span-4;
   }
+  justify-content: center;
 }
 
 .squareBg {
@@ -73,16 +74,21 @@
   justify-content: center;
   width: 100px;
   height: 100px;
-  margin: 5px;
+  object-fit: contain;
   box-shadow: 3px 5px 9px rgba(0, 0, 0, 0.24);
   transition: ease-in-out 100ms all;
   border-radius: 3px;
+}
+
+.thumbImage {
+  margin: 5px;
 }
 
 .thumbImageContainer img:hover {
   opacity: 0.8;
   cursor: pointer;
   transform: scale(0.95);
+  box-shadow: none;
 }
 
 .selectedImageContainer {
@@ -100,7 +106,6 @@
 
 .selectedImageContainer img {
   width: 100%;
-  box-shadow: 3px 5px 9px rgba(0, 0, 0, 0.24);
   min-width: 100px;
   min-height: 100px;
   max-width: 550px;
@@ -112,10 +117,10 @@
 }
 
 .selectedImageContainer img:hover {
-  opacity: 0.95;
+  opacity: 0.8;
   cursor: pointer;
   box-shadow: none;
-  transform: scale(1.02);
+  transform: scale(0.96);
 }
 
 .img {

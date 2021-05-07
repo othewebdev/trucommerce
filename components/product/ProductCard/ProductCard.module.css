@@ -3,35 +3,33 @@
   height: 100% !important;
   &:hover {
     & .productImage {
-      transform: scale(1.0625);
+      transform: scale(1.1);
+      opacity: 0.75;
     }
   }
 }
 
-.simple {
-  & .productTitle {
-    font-size: 1rem;
-  }
-  & .productPrice {
-    @apply text-sm;
-  }
-}
-
 .productTitle {
-  @apply pt-0 max-w-full w-full;
+  @apply pt-0 max-w-full w-full text-lg;
   letter-spacing: 0.25px;
   & span {
     @apply transform transition-transform duration-500 px-2 py-2 text-white;
-    background-color: #c30014;
+    color: #000000;
     font-size: inherit;
   }
+  text-align: center;
   margin: auto;
   display: flex;
+  justify-content: center;
+}
+
+.productInfoBox {
 }
 
 .productPrice {
-  @apply py-4 px-2  bg-white font-medium inline-block text-3xl leading-6;
-  color: #c30014;
+  @apply py-4 px-2 text-3xl font-normal inline-block leading-4;
+  display: flex;
+  justify-content: center;
   letter-spacing: 0.4px;
 }
 

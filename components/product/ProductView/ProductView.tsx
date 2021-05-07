@@ -7,6 +7,7 @@ import useAddItem from '@framework/cart/use-add-item'
 import usePrice from '@framework/use-price'
 import cn from 'classnames'
 import { NextSeo } from 'next-seo'
+import Image from 'next/image'
 import { FC, useState } from 'react'
 import {
   getCurrentVariant,
@@ -77,18 +78,24 @@ const ProductView: FC<Props> = ({ product }) => {
           <div className={s.sliderContainer}>
             {product.images.edges?.slice(0, 1).map((image) => (
               <div className={s.selectedImageContainer}>
-                <img
+                <Image
+                  width={550}
+                  height={550}
+                  quality={75}
                   onClick={() => setImageURL(image?.node.urlOriginal!)}
                   src={image?.node.urlOriginal!}
                 />
               </div>
             ))}
             <div className={s.thumbImageContainer}>
-              {product.images.edges?.map((image, i) => (
-                <div key={image?.node.urlOriginal}>
-                  <img
+              {product.images.edges?.slice(1, 10).map((image, i) => (
+                <div className={s.thumbImage} key={image?.node.urlOriginal}>
+                  <Image
                     onClick={() => setImageURL(image?.node.urlOriginal!)}
                     src={image?.node.urlOriginal!}
+                    quality={75}
+                    width={500}
+                    height={500}
                   />
                 </div>
               ))}
