@@ -88,7 +88,7 @@ const ProductView: FC<Props> = ({ product }) => {
               </div>
             ))}
             <div className={s.thumbImageContainer}>
-              {product.images.edges?.slice(1, 10).map((image, i) => (
+              {product.images.edges?.slice(1, 50).map((image, i) => (
                 <div className={s.thumbImage} key={image?.node.urlOriginal}>
                   <Image
                     onClick={() => setImageURL(image?.node.urlOriginal!)}
