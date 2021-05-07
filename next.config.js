@@ -7,7 +7,7 @@ module.exports = bundleAnalyzer({
     domains: ['cdn11.bigcommerce.com'],
   },
   i18n: {
-    locales: ['en-US', 'es'],
+    locales: ['en-US'],
     defaultLocale: 'en-US',
   },
   rewrites() {
