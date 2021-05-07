@@ -1,5 +1,5 @@
 import { Modal } from '@components/common'
-import { Swatch } from '@components/product'
+import { ProductSlider, Swatch } from '@components/product'
 import { Button, Container, Text } from '@components/ui'
 import { useUI } from '@components/ui/context'
 import type { ProductNode } from '@framework/api/operations/get-product'
@@ -76,17 +76,20 @@ const ProductView: FC<Props> = ({ product }) => {
       <div className={cn(s.root)}>
         <div className={cn(s.productDisplay)}>
           <div className={s.sliderContainer}>
-            {product.images.edges?.slice(0, 1).map((image) => (
-              <div className={s.selectedImageContainer}>
-                <Image
-                  width={550}
-                  height={550}
-                  quality={75}
-                  onClick={() => setImageURL(image?.node.urlOriginal!)}
-                  src={image?.node.urlOriginal!}
-                />
-              </div>
-            ))}
+            <ProductSlider>
+              {product.images.edges?.map((image) => (
+                <div className={s.selectedImageContainer}>
+                  <Image
+                    width={550}
+                    height={550}
+                    quality={75}
+                    onClick={() => setImageURL(image?.node.urlOriginal!)}
+                    src={image?.node.urlOriginal!}
+                  />
+                </div>
+              ))}
+            </ProductSlider>
+
             <div className={s.thumbImageContainer}>
               {product.images.edges?.slice(1, 50).map((image, i) => (
                 <div className={s.thumbImage} key={image?.node.urlOriginal}>

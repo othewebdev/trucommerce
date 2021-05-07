@@ -7,6 +7,7 @@ import React, {
   useRef,
   useEffect,
 } from 'react'
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import cn from 'classnames'
 
 import s from './ProductSlider.module.css'
@@ -59,16 +60,6 @@ const ProductSlider: FC = ({ children }) => {
 
   return (
     <div className={s.root} ref={sliderContainerRef}>
-      <button
-        className={cn(s.leftControl, s.control)}
-        onClick={slider?.prev}
-        aria-label="Previous Product Image"
-      />
-      <button
-        className={cn(s.rightControl, s.control)}
-        onClick={slider?.next}
-        aria-label="Next Product Image"
-      />
       <div
         ref={ref}
         className="keen-slider  transition-opacity duration-150"
@@ -110,6 +101,18 @@ const ProductSlider: FC = ({ children }) => {
           })}
         </div>
       )}
+      <div className={s.buttonContainer}>
+        <IoIosArrowBack
+          className={cn(s.control)}
+          onClick={slider?.prev}
+          aria-label="Previous Product Image"
+        />
+        <IoIosArrowForward
+          className={cn(s.control)}
+          onClick={slider?.next}
+          aria-label="Next Product Image"
+        />
+      </div>
     </div>
   )
 }
