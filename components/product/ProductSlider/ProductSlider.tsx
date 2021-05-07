@@ -9,7 +9,6 @@ import React, {
 } from 'react'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import cn from 'classnames'
-
 import s from './ProductSlider.module.css'
 
 const ProductSlider: FC = ({ children }) => {
@@ -83,36 +82,37 @@ const ProductSlider: FC = ({ children }) => {
       </div>
       {slider && (
         <div className={cn(s.positionIndicatorsContainer)}>
-          {[...Array(slider.details().size).keys()].map((idx) => {
-            return (
-              <button
-                aria-label="Position indicator"
-                key={idx}
-                className={cn(s.positionIndicator, {
-                  [s.positionIndicatorActive]: currentSlide === idx,
-                })}
-                onClick={() => {
-                  slider.moveToSlideRelative(idx)
-                }}
-              >
-                <div className={s.dot} />
-              </button>
-            )
-          })}
+          <IoIosArrowBack
+            className={cn(s.control)}
+            onClick={slider?.prev}
+            aria-label="Previous Product Image"
+          />
+          <div className={cn(s.indicatorContainer)}>
+            {[...Array(slider.details().size).keys()].map((idx) => {
+              return (
+                <button
+                  aria-label="Position indicator"
+                  key={idx}
+                  className={cn(s.positionIndicator, {
+                    [s.positionIndicatorActive]: currentSlide === idx,
+                  })}
+                  onClick={() => {
+                    slider.moveToSlideRelative(idx)
+                  }}
+                >
+                  <div className={s.dot} />
+                </button>
+              )
+            })}
+          </div>
+          <IoIosArrowForward
+            className={cn(s.control)}
+            onClick={slider?.next}
+            aria-label="Next Product Image"
+          />
         </div>
       )}
-      <div className={s.buttonContainer}>
-        <IoIosArrowBack
-          className={cn(s.control)}
-          onClick={slider?.prev}
-          aria-label="Previous Product Image"
-        />
-        <IoIosArrowForward
-          className={cn(s.control)}
-          onClick={slider?.next}
-          aria-label="Next Product Image"
-        />
-      </div>
+      {slider && <div className={s.buttonContainer}></div>}
     </div>
   )
 }

@@ -3,39 +3,6 @@
   overflow-y: hidden;
 }
 
-.leftControl,
-.rightControl {
-  @apply hidden;
-}
-
-.leftControl:hover,
-.rightControl:hover {
-  @apply bg-hover-2;
-}
-
-.leftControl:hover,
-.rightControl:hover {
-  @apply outline-none shadow-outline-blue;
-}
-
-.leftControl {
-  @apply bg-cover;
-  background-image: url('public/cursor-left.png');
-
-  @screen md {
-    @apply hidden;
-  }
-
-  @screen sm {
-    @apply hidden;
-  }
-}
-
-.rightControl {
-  @apply bg-cover;
-  background-image: url('public/cursor-right.png');
-}
-
 .control {
   @apply opacity-0 w-5 h-5 my-4 transition duration-150;
   cursor: pointer;
@@ -46,6 +13,7 @@
 
 .buttonContainer {
   display: flex;
+  width: 100%;
   justify-content: space-between;
 }
 
@@ -54,12 +22,17 @@
 }
 
 .positionIndicatorsContainer {
-  @apply hidden;
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  justify-content: center;
+  padding: 0 20px;
+}
 
-  @screen sm {
-    @apply block absolute bottom-6 left-1/2;
-    transform: translateX(-50%);
-  }
+.indicatorContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .positionIndicator {

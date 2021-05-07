@@ -80,8 +80,8 @@ const ProductView: FC<Props> = ({ product }) => {
               {product.images.edges?.map((image) => (
                 <div className={s.selectedImageContainer}>
                   <Image
-                    width={550}
-                    height={550}
+                    width={500}
+                    height={500}
                     quality={75}
                     onClick={() => setImageURL(image?.node.urlOriginal!)}
                     src={image?.node.urlOriginal!}
@@ -89,7 +89,6 @@ const ProductView: FC<Props> = ({ product }) => {
                 </div>
               ))}
             </ProductSlider>
-
             <div className={s.thumbImageContainer}>
               {product.images.edges?.slice(1, 50).map((image, i) => (
                 <div className={s.thumbImage} key={image?.node.urlOriginal}>
@@ -97,8 +96,8 @@ const ProductView: FC<Props> = ({ product }) => {
                     onClick={() => setImageURL(image?.node.urlOriginal!)}
                     src={image?.node.urlOriginal!}
                     quality={75}
-                    width={500}
-                    height={500}
+                    width={475}
+                    height={475}
                   />
                 </div>
               ))}

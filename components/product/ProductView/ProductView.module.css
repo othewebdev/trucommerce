@@ -8,7 +8,7 @@
 }
 
 .productDisplay {
-  @apply relative flex mx-4 pb-0 relative box-border col-span-1 bg-transparent;
+  @apply relative flex mx-4  pb-0 relative box-border col-span-1 bg-transparent;
   /* min-height: 600px;
   @screen md {
     min-height: 700px;
@@ -16,7 +16,7 @@
   @screen lg {
     margin-right: -2rem;
     margin-left: -2rem;
-    @apply mx-0 col-span-4;
+    @apply mx-0 col-span-6;
   }
   justify-content: center;
 }
@@ -45,9 +45,9 @@
 }
 
 .sidebar {
-  @apply flex flex-col col-span-1 mx-auto max-w-8xl px-6 w-full h-full;
+  @apply flex flex-col col-span-1 mx-auto max-w-8xl  w-full h-full;
   @screen lg {
-    @apply col-span-8 py-24 justify-between;
+    @apply col-span-6 py-8 justify-between;
   }
 }
 
@@ -61,6 +61,7 @@
 }
 
 .thumbImageContainer {
+  padding: 25px;
   width: 100%;
   display: flex;
   margin-top: 50px;
@@ -93,6 +94,7 @@
 
 .selectedImageContainer {
   margin: 0 auto;
+  padding: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -102,21 +104,21 @@
   max-width: 550px;
   max-height: 550px;
   object-fit: contain;
+  transition: ease-in-out 125ms all;
+  cursor: pointer;
 }
 
-.selectedImageContainer img {
+.selectedImageContainer Image {
   width: 100%;
   min-width: 100px;
   min-height: 100px;
   max-width: 550px;
   max-height: 550px;
   object-fit: contain;
-  transition: ease-in-out 125ms all;
-  cursor: pointer;
   border-radius: 5px;
 }
 
-.selectedImageContainer img:hover {
+.selectedImageContainer:hover {
   opacity: 0.8;
   cursor: pointer;
   box-shadow: none;
