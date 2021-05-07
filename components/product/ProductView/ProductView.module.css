@@ -108,7 +108,7 @@
   cursor: pointer;
 }
 
-.selectedImageContainer Image {
+.selectedImageContainer img {
   width: 100%;
   min-width: 100px;
   min-height: 100px;
