@@ -82,7 +82,7 @@ const ProductView: FC<Props> = ({ product }) => {
                   <Image
                     width={550}
                     height={550}
-                    quality={75}
+                    quality={50}
                     onClick={() => setImageURL(image?.node.urlOriginal!)}
                     src={image?.node.urlOriginal!}
                   />
@@ -95,9 +95,9 @@ const ProductView: FC<Props> = ({ product }) => {
                   <Image
                     onClick={() => setImageURL(image?.node.urlOriginal!)}
                     src={image?.node.urlOriginal!}
-                    quality={75}
-                    width={475}
-                    height={500}
+                    quality={50}
+                    width={100}
+                    height={100}
                   />
                 </div>
               ))}

@@ -42,13 +42,9 @@ const Swatch: FC<Props & ButtonProps> = ({
       aria-label="Variant Swatch"
       {...props}
     >
-      {variant === 'color' && active && (
-        <span>
-          <Check />
-        </span>
-      )}
       {variant === 'product option' ? label : null}
       {variant === 'size' ? label : null}
+      {variant === 'color' && label}
     </Button>
   )
 }
