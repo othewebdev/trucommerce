@@ -1,9 +1,8 @@
+import Button, { ButtonProps } from '@components/ui/Button'
+import { isDark } from '@lib/colors'
 import cn from 'classnames'
 import { FC } from 'react'
 import s from './Swatch.module.css'
-import { Check } from '@components/icons'
-import Button, { ButtonProps } from '@components/ui/Button'
-import { isDark } from '@lib/colors'
 interface Props {
   active?: boolean
   children?: any
