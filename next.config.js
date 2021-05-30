@@ -23,7 +23,14 @@ module.exports = bundleAnalyzer({
         destination: '/api/bigcommerce/customers/logout?redirect_to=/',
       },
       // Rewrites for /search
-
+      {
+        source: '/search/designers/:name',
+        destination: '/search',
+      },
+      {
+        source: '/search/designers/:name/:category',
+        destination: '/search',
+      },
       {
         // This rewrite will also handle `/search/designers`
         source: '/search/:category',
