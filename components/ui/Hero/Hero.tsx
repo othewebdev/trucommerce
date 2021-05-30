@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
-import { Container } from '@components/ui'
+import { Container, Button } from '@components/ui'
 import Butterfly from '../Butterfly'
+import Link from 'next/link'
 import s from './Hero.module.css'
 
 interface Props {
@@ -40,6 +41,9 @@ const Hero: FC<Props> = ({ headline, description, bg, text }) => {
                 {description}
               </h2>
             </div>
+            <Link href="/search">
+              <Button className={s.button}>Shop Now</Button>
+            </Link>
           </div>
         </div>
       </Container>

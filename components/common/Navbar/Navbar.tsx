@@ -48,7 +48,7 @@ const Navbar: FC = () => {
 
             <nav className="w-200 ml-4 hidden space-x-2 md:block lg:block">
               <Link href="/search">
-                <a className={s.link}>Products</a>
+                <a className={s.link}>Shop</a>
               </Link>
               <Link href="/en-US/faq">
                 <a className={s.link}>FAQ</a>
@@ -80,7 +80,7 @@ const Navbar: FC = () => {
             </Link>
             <Link href="/search">
               <a onClick={() => setIsOpen(!isOpen)} className={s.mobilelink}>
-                Products
+                Shop
               </a>
             </Link>
             <Link href="/en-US/faq">

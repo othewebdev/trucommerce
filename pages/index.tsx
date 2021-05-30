@@ -1,13 +1,12 @@
-import rangeMap from '@lib/range-map'
 import { Layout } from '@components/common'
 import { ProductCard } from '@components/product'
-import { Announcement, Grid, Footer, Hero } from '@components/ui'
-import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
-
+import { Grid, Hero } from '@components/ui'
 import { getConfig } from '@framework/api'
+import getAllPages from '@framework/api/operations/get-all-pages'
 import getAllProducts from '@framework/api/operations/get-all-products'
 import getSiteInfo from '@framework/api/operations/get-site-info'
-import getAllPages from '@framework/api/operations/get-all-pages'
+import rangeMap from '@lib/range-map'
+import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 
 export async function getStaticProps({
   preview,

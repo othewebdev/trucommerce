@@ -13,6 +13,21 @@
   grid-template-columns: 1fr 2fr;
 }
 
+.button {
+  margin: auto;
+  border: 1px solid #c1000c !important;
+  background: transparent !important;
+  color: #c1000c !important;
+  outline: none !important;
+  width: 25%;
+  min-width: 375px;
+}
+
+.button:hover {
+  background: #c1000c !important;
+  color: white !important;
+}
+
 @media (max-width: 1024px) {
   .gridContainer {
     grid-template-columns: 1fr;
