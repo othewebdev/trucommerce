@@ -41,9 +41,9 @@ const Hero: FC<Props> = ({ headline, description, bg, text }) => {
                 {description}
               </h2>
             </div>
-            {/* <Link href="/search">
+            <Link href="/search">
               <Button className={s.button}>Shop Now</Button>
-            </Link> */}
+            </Link>
           </div>
         </div>
       </Container>
