@@ -31,7 +31,14 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <Head />
+      <Head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta
+          name="description"
+          content="Truley Unique Sells Handmade, One-of-a-Kind Fashion Accessories. Looking for Stylish Face Masks? Or Unique Earrings and Other Trendy Items? We're Your One Stop Shop!"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
       <ManagedUIContext>
         <Layout pageProps={pageProps}>
           <Component {...pageProps} />
