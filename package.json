@@ -63,6 +63,7 @@
     "postcss-nesting": "^7.0.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "react-ga": "^3.3.0",
     "react-icons": "^4.2.0",
     "react-merge-refs": "^1.1.0",
     "react-ticker": "^1.2.2",

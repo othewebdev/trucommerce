@@ -1,12 +1,11 @@
+import type { ProductNode } from '@framework/api/operations/get-all-products'
+import usePrice from '@framework/use-price'
 import cn from 'classnames'
-import Link from 'next/link'
 import Image from 'next/image'
+import Link from 'next/link'
 import type { FC } from 'react'
 import s from './ProductCard.module.css'
-import WishlistButton from '@components/wishlist/WishlistButton'
-
-import usePrice from '@framework/use-price'
-import type { ProductNode } from '@framework/api/operations/get-all-products'
+import * as gtag from '../../../lib/gtag'
 
 interface Props {
   className?: string
@@ -38,9 +37,19 @@ const ProductCard: FC<Props> = ({
     currencyCode: p.prices?.price?.currencyCode!,
   })
 
+  const logGtag = () => {
+    gtag.event({
+      action: 'click_on_product',
+      category: 'products',
+      label: 'Product clicked',
+      value: 'Product clicked',
+    })
+  }
+
   return (
     <Link href={`/product${p.path}`}>
       <a
+        onClick={logGtag}
         className={cn(s.root, { [s.simple]: variant === 'simple' }, className)}
       >
         {variant === 'slim' ? (
@@ -66,7 +75,7 @@ const ProductCard: FC<Props> = ({
           <>
             <div />
             <div className="flex flex-row justify-between box-border absolute z-20"></div>
-            <div className={s.imageContainer}>
+            <div onClick={logGtag} className={s.imageContainer}>
               <Image
                 quality="100"
                 src={src}

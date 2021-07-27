@@ -3,6 +3,7 @@ import { Container, Button } from '@components/ui'
 import Butterfly from '../Butterfly'
 import Link from 'next/link'
 import s from './Hero.module.css'
+import * as gtag from '../../../lib/gtag'
 
 interface Props {
   className?: string
@@ -13,6 +14,14 @@ interface Props {
 }
 
 const Hero: FC<Props> = ({ headline, description, bg, text }) => {
+  const logGtag = () => {
+    gtag.event({
+      action: 'clicked_header_button',
+      category: 'shopping',
+      label: 'User is shopping',
+      value: 'User is shopping',
+    })
+  }
   return (
     <div className={bg}>
       <Container>
@@ -42,7 +51,9 @@ const Hero: FC<Props> = ({ headline, description, bg, text }) => {
               </h2>
             </div>
             <Link href="/search">
-              <Button className={s.button}>Shop Now</Button>
+              <Button onClick={logGtag} className={s.button}>
+                Shop Now
+              </Button>
             </Link>
           </div>
         </div>

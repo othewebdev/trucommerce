@@ -15,6 +15,7 @@ import {
   SelectedOptions,
 } from '../helpers'
 import s from './ProductView.module.css'
+import * as gtag from '../../../lib/gtag'
 
 interface Props {
   className?: string
@@ -43,17 +44,25 @@ const ProductView: FC<Props> = ({ product }) => {
 
   const addToCart = async () => {
     setLoading(true)
+
     try {
       await addItem({
         productId: product.entityId,
-        variantId: product.variants.edges?.[choices.size || choices.color]?.node
-          .entityId!,
+        variantId:
+          product.variants.edges?.[choices.size || choices.color]?.node
+            .entityId!,
       })
       openSidebar()
       setLoading(false)
     } catch (err) {
       setLoading(false)
     }
+    gtag.event({
+      action: 'add_to_cart',
+      category: 'products',
+      label: 'Product added to cart',
+      value: 'Product added to cart',
+    })
   }
   return (
     <Container className="max-w-none w-full" clean>
