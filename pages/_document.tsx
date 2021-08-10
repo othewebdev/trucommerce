@@ -23,7 +23,7 @@ class MyDocument extends Document {
           `,
             }}
           />
-          <title>Truley Unique</title>
+
           <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
           <meta
             name="description"
