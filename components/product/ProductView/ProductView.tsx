@@ -97,7 +97,7 @@ const ProductView: FC<Props> = ({ product }) => {
               {product.images.edges?.slice(0, 1).map((image) => (
                 <div className={s.selectedImageContainer}>
                   <Image
-                    alt={image?.node.altText}
+                    alt={image?.node.altText!}
                     width={550}
                     height={550}
                     quality={50}
@@ -114,7 +114,7 @@ const ProductView: FC<Props> = ({ product }) => {
               {product.images.edges?.slice(1, 50).map((image, i) => (
                 <div className={s.thumbImage} key={image?.node.urlOriginal}>
                   <Image
-                    alt={image?.node.altText}
+                    alt={image?.node.altText!}
                     onClick={() => setImageURL(image?.node.urlOriginal!)}
                     src={image?.node.urlOriginal!}
                     quality={50}
