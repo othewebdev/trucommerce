@@ -35,6 +35,7 @@ const ProductView: FC<Props> = ({ product }) => {
   const [loading, setLoading] = useState(false)
   const [readMore, setReadMore] = useState(false)
   let [imageURL, setImageURL] = useState('')
+  let [imageAlt, setImageAlt] = useState('')
   const [choices, setChoices] = useState<SelectedOptions>({
     size: 0,
     color: 0,
@@ -81,7 +82,14 @@ const ProductView: FC<Props> = ({ product }) => {
           ],
         }}
       />
-      {imageURL && <Modal imageSrc={imageURL} setImageURL={setImageURL} />}
+      {imageURL && (
+        <Modal
+          imageSrc={imageURL}
+          setImageURL={setImageURL}
+          imageTag={imageAlt}
+          setImageAlt={setImageAlt}
+        />
+      )}
       <div className={cn(s.root)}>
         <div className={cn(s.productDisplay)}>
           <div className={s.sliderContainer}>
@@ -89,10 +97,14 @@ const ProductView: FC<Props> = ({ product }) => {
               {product.images.edges?.slice(0, 1).map((image) => (
                 <div className={s.selectedImageContainer}>
                   <Image
+                    alt={image?.node.altText}
                     width={550}
                     height={550}
                     quality={50}
-                    onClick={() => setImageURL(image?.node.urlOriginal!)}
+                    onClick={() => {
+                      setImageAlt(image?.node.altText!)
+                      setImageURL(image?.node.urlOriginal!)
+                    }}
                     src={image?.node.urlOriginal!}
                   />
                 </div>
@@ -102,6 +114,7 @@ const ProductView: FC<Props> = ({ product }) => {
               {product.images.edges?.slice(1, 50).map((image, i) => (
                 <div className={s.thumbImage} key={image?.node.urlOriginal}>
                   <Image
+                    alt={image?.node.altText}
                     onClick={() => setImageURL(image?.node.urlOriginal!)}
                     src={image?.node.urlOriginal!}
                     quality={50}

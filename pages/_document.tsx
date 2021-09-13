@@ -29,7 +29,6 @@ class MyDocument extends Document {
             name="description"
             content="Truley Unique Sells Handmade, One-of-a-Kind Fashion Accessories. Looking for Stylish Face Masks? Or Unique Earrings and Other Trendy Items? We're Your One Stop Shop!"
           />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
         <body className="loading">
           <Main />

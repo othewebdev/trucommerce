@@ -5,15 +5,23 @@ type Dispatcher<S> = Dispatch<SetStateAction<S>>
 
 interface Props {
   imageSrc?: string
+  imageTag?: string
   setImageURL?: Dispatch<SetStateAction<string>>
+  setImageAlt?: Dispatch<SetStateAction<string>>
 }
 
-const Modal: FC<Props> = ({ imageSrc, setImageURL }) => {
+const Modal: FC<Props> = ({ imageSrc, imageTag, setImageURL, setImageAlt }) => {
   return useMemo(
     () => (
-      <div className={s.modalBox} onClick={() => setImageURL!('')}>
+      <div
+        className={s.modalBox}
+        onClick={() => {
+          setImageURL!('')
+          setImageAlt!('')
+        }}
+      >
         <div className={s.modalImageContainer}>
-          <img src={imageSrc} />
+          <img src={imageSrc} alt={imageTag} />
         </div>
       </div>
     ),
