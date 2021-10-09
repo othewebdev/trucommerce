@@ -16,11 +16,12 @@
 .button {
   margin: auto;
   border: 1px solid #c1000c !important;
+  border-radius: 24px !important;
   background: transparent !important;
   color: #c1000c !important;
   outline: none !important;
-  width: 26%;
-  min-width: 375px;
+  width: 350px;
+  border-radius: 24px;
 }
 
 .button:hover {
