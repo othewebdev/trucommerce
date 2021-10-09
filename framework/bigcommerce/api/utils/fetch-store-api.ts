@@ -9,6 +9,7 @@ export default async function fetchStoreApi<T>(
 ): Promise<T> {
   const config = getConfig()
   let res: Response
+  const error = {}
 
   try {
     res = await fetch(config.storeApiUrl + endpoint, {
@@ -21,9 +22,7 @@ export default async function fetchStoreApi<T>(
       },
     })
   } catch (error) {
-    throw new BigcommerceNetworkError(
-      `Fetch to Bigcommerce failed: ${error.message}`
-    )
+    throw new BigcommerceNetworkError(`Fetch to Bigcommerce failed: `)
   }
 
   const contentType = res.headers.get('Content-Type')
