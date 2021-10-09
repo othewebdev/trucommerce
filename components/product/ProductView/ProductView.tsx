@@ -9,6 +9,7 @@ import cn from 'classnames'
 import { NextSeo } from 'next-seo'
 import Image from 'next/image'
 import { FC, useState } from 'react'
+import { useRouter } from 'next/router'
 import {
   getCurrentVariant,
   getProductOptions,
@@ -16,6 +17,7 @@ import {
 } from '../helpers'
 import s from './ProductView.module.css'
 import * as gtag from '../../../lib/gtag'
+import Link from 'next/link'
 
 interface Props {
   className?: string
@@ -65,8 +67,9 @@ const ProductView: FC<Props> = ({ product }) => {
       value: 'Product added to cart',
     })
   }
+
   return (
-    <Container className="max-w-none w-full" clean>
+    <Container className={s.container} clean>
       <NextSeo
         title={product.name}
         description={product.description}
@@ -93,6 +96,15 @@ const ProductView: FC<Props> = ({ product }) => {
       <div className={cn(s.root)}>
         <div className={cn(s.productDisplay)}>
           <div className={s.sliderContainer}>
+            <div className={s.breadContainerTop}>
+              <Link href="/search">{'Products '}</Link>
+              <p>{' /'}</p>
+              <div className={s.activeLink}>
+                <Link href={'/product' + product.path}>
+                  {' ' + product.name}
+                </Link>
+              </div>
+            </div>
             <div className={s.selectedImageContainer}>
               {product.images.edges?.slice(0, 1).map((image) => (
                 <div className={s.selectedImageContainer}>
@@ -129,6 +141,14 @@ const ProductView: FC<Props> = ({ product }) => {
 
         <div className={s.sidebar}>
           <section>
+            <div className={s.breadContainer}>
+              <Link href="/search">{'Products' + ' ' + '/'}</Link>
+              <div className={s.activeLink}>
+                <Link href={'/product' + product.path}>
+                  {' ' + product.name}
+                </Link>
+              </div>
+            </div>
             <div>
               <h1 className="text-2xl text-center">{product.name}</h1>
               <div className="text-4xl font-semibold text-center">
@@ -185,11 +205,11 @@ const ProductView: FC<Props> = ({ product }) => {
               <Text html={product.description} />
             </div>
           </section>
-          <div>
+          <div className={s.btnContainer}>
             <Button
               aria-label="Add to Cart"
               type="button"
-              className={s.button}
+              className={s.btn}
               onClick={addToCart}
               loading={loading}
               disabled={!variant}

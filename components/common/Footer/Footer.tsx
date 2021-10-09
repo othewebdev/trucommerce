@@ -1,12 +1,11 @@
-import { FC } from 'react'
+import { Othewebdev } from '@components/icons'
+import { Container, LogoAlt } from '@components/ui'
+import type { Page } from '@framework/api/operations/get-all-pages'
+import getSlug from '@lib/get-slug'
 import cn from 'classnames'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import type { Page } from '@framework/api/operations/get-all-pages'
-import getSlug from '@lib/get-slug'
-import { Othewebdev } from '@components/icons'
-import { LogoAlt, Container } from '@components/ui'
-import { I18nWidget } from '@components/common'
+import { FC } from 'react'
 
 interface Props {
   className?: string
@@ -64,7 +63,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
         <div className="py-12 flex flex-col md:flex-row justify-between items-center space-y-4">
           <div>
             <span>
-              &copy; {footer_date} Truley Unique, Inc. All rights reserved.
+              &copy; {footer_date} Truley Unique LLC. All rights reserved.
             </span>
           </div>
           <div className="flex items-center text-primary">
