@@ -51,7 +51,7 @@ const Hero: FC<Props> = ({ headline, description, bg, text }) => {
               </h2>
             </div>
             <Link href="/search">
-              <Button onClick={logGtag} className={s.button}>
+              <Button onClick={logGtag} className={s.btn}>
                 Shop Now
               </Button>
             </Link>

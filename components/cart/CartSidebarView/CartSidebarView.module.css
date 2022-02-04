@@ -13,3 +13,26 @@
 .root.error {
   @apply bg-red text-white;
 }
+
+.btn {
+  margin: auto;
+  border: 1px solid #c1000c !important;
+  border-radius: 24px !important;
+  background: transparent !important;
+  color: #c1000c !important;
+  outline: none !important;
+  width: 350px;
+  border-radius: 24px;
+}
+
+.btn:hover {
+  background: #c1000c !important;
+  color: white !important;
+}
+
+@media screen and (max-width: 500px) {
+  .btn {
+    transition: ease-in 100ms;
+    width: 100%;
+  }
+}
