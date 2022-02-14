@@ -52,20 +52,12 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present
-    - name: Get current time
+    - name: gct
       uses: josStorer/get-current-time@v2
       id: current-time
       with:
-        format: YYYYMMDD-HH
+        format: HH-MM-DD-YYYY
         utcOffset: "-06:00"
-    - name: Use current time
-      env:
-        TIME: "${{ steps.current-time.outputs.time }}"
-        R_TIME: "${{ steps.current-time.outputs.readableTime }}"
-        F_TIME: "${{ steps.current-time.outputs.formattedTime }}"
-        YEAR: "${{ steps.current-time.outputs.year }}"
-        DAY: "${{ steps.current-time.outputs.day }}"
-      run: echo $TIME $R_TIME $F_TIME $YEAR $DAY
     - name: Automatically create a commit
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
