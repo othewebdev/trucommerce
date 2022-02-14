@@ -23,5 +23,6 @@
 }
 
 .active {
-  @apply border-accents-9  border-2;
+  border-bottom: 1px solid;
+  outline: none;
 }

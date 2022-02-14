@@ -42,6 +42,7 @@ const Swatch: FC<Props & ButtonProps> = ({
       {...props}
     >
       {variant === 'product option' ? label : null}
+      {variant === 'cutter/embosser' ? label : null}
       {variant === 'size' ? label : null}
       {variant === 'color' && label}
     </Button>

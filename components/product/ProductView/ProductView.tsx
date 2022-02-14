@@ -67,7 +67,6 @@ const ProductView: FC<Props> = ({ product }) => {
       value: 'Product added to cart',
     })
   }
-
   return (
     <Container className={s.container} clean>
       <NextSeo
@@ -157,6 +156,7 @@ const ProductView: FC<Props> = ({ product }) => {
                 {product.prices?.price.currencyCode}
               </div>
             </div>
+
             {options?.map((opt: any) => (
               <div className="pb-4" key={opt.displayName}>
                 <h2 className="capitalize text-center font-light">
@@ -166,23 +166,21 @@ const ProductView: FC<Props> = ({ product }) => {
                   {opt.values.map((v: any, i: number) => {
                     const active = (choices as any)[opt.displayName]
                     return (
-                      <>
-                        <Swatch
-                          key={`${v.entityId}-${i}`}
-                          active={i === active}
-                          variant={opt.displayName}
-                          color={v.hexColors ? v.hexColors[0] : ''}
-                          label={v.label}
-                          onClick={() => {
-                            setChoices((choices) => {
-                              return {
-                                ...choices,
-                                [opt.displayName]: i,
-                              }
-                            })
-                          }}
-                        />
-                      </>
+                      <Swatch
+                        key={`${v.entityId}-${i}`}
+                        active={i === active}
+                        variant={opt.displayName}
+                        color={v.hexColors ? v.hexColors[0] : ''}
+                        label={v.label}
+                        onClick={() => {
+                          setChoices((choices) => {
+                            return {
+                              ...choices,
+                              [opt.displayName]: i,
+                            }
+                          })
+                        }}
+                      />
                     )
                   })}
                 </div>

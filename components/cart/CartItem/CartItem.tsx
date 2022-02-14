@@ -74,7 +74,7 @@ const CartItem = ({
         'opacity-75 pointer-events-none': removing,
       })}
     >
-      <div className="w-16 h-16 bg-violet relative overflow-hidden">
+      <div className="w-16 h-16 relative overflow-hidden">
         <Image
           className={s.productImage}
           src={item.image_url}
@@ -92,7 +92,11 @@ const CartItem = ({
             {item.name}
           </span>
         </Link>
-
+        <div>
+          <span className="font-bold mb-5 text-lg cursor-pointer">
+            {item.variant}
+          </span>
+        </div>
         <div className="flex items-center">
           <button type="button" onClick={() => increaseQuantity(-1)}>
             <Minus width={18} height={18} />
