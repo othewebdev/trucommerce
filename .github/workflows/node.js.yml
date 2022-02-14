@@ -50,5 +50,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - name: Git Auto Commit
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Automatedd Nightly Push
     - run: npm ci
     - run: npm run build --if-present
