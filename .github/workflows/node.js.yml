@@ -50,10 +50,10 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - name: Git Auto Commit
+    - run: npm ci
+    - run: npm run build --if-present
+    - name: Automatically create a commit
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: Automatedd Nightly Push
         commit_options: '--allow-empty'
-    - run: npm ci
-    - run: npm run build --if-present
