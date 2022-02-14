@@ -69,7 +69,7 @@ jobs:
     - name: Automatically create a commit
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        commit_message: Automated-Nightly-Push-$F_TIME
+        commit_message: Automated-Nightly-Push-${{ steps.current-time.outputs.formattedTime }}
         commit_options: '--allow-empty'
         push_options: '--force'
         skip_dirty_check: true    
