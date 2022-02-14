@@ -3,6 +3,7 @@ import type { ProductNode } from '@framework/api/operations/get-product'
 export type SelectedOptions = {
   size: number
   color: number
+  'cutter/embosser': number
 }
 
 export type ProductOption = {

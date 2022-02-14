@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Modal } from '@components/common'
 import { Swatch } from '@components/product'
 import { Button, Container, Text } from '@components/ui'
@@ -9,7 +10,6 @@ import cn from 'classnames'
 import { NextSeo } from 'next-seo'
 import Image from 'next/image'
 import { FC, useState } from 'react'
-import { useRouter } from 'next/router'
 import {
   getCurrentVariant,
   getProductOptions,
@@ -41,6 +41,7 @@ const ProductView: FC<Props> = ({ product }) => {
   const [choices, setChoices] = useState<SelectedOptions>({
     size: 0,
     color: 0,
+    'cutter/embosser': 0,
   })
   const variant =
     getCurrentVariant(product, choices) || product.variants.edges?.[0]
@@ -52,8 +53,11 @@ const ProductView: FC<Props> = ({ product }) => {
       await addItem({
         productId: product.entityId,
         variantId:
-          product.variants.edges?.[choices.size || choices.color]?.node
-            .entityId!,
+          product.variants.edges?.[
+            choices.size ||
+              choices.color ||
+              (choices['cutter/embosser'] && choices.size)
+          ]?.node.entityId!,
       })
       openSidebar()
       setLoading(false)
@@ -67,6 +71,9 @@ const ProductView: FC<Props> = ({ product }) => {
       value: 'Product added to cart',
     })
   }
+  useEffect(() => {
+    console.log(choices)
+  }, [choices])
   return (
     <Container className={s.container} clean>
       <NextSeo
