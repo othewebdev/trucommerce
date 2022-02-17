@@ -3,8 +3,7 @@
   height: 100% !important;
   &:hover {
     & .productImage {
-      transform: scale(1.1);
-      opacity: 0.75;
+      transform: scale(1);
     }
   }
 }
@@ -23,9 +22,6 @@
   justify-content: center;
 }
 
-.productInfoBox {
-}
-
 .productPrice {
   @apply py-4 px-2 text-3xl font-normal inline-block leading-4;
   display: flex;
@@ -35,6 +31,7 @@
 
 .imageContainer {
   @apply flex items-center justify-center;
+  border-radius: 8px;
   overflow: hidden;
   & > div {
     min-width: 100%;
@@ -42,5 +39,5 @@
 }
 
 .productImage {
-  @apply transform transition-transform duration-500 object-cover scale-120;
+  @apply transform transition-transform duration-100 object-cover scale-120;
 }

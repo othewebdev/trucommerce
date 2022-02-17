@@ -10,6 +10,7 @@
 
   &:hover {
     @apply transform scale-110;
+    color: var(--truley-lightred);
   }
 }
 
@@ -23,6 +24,6 @@
 }
 
 .active {
-  border-bottom: 1px solid;
-  outline: none;
+  border-bottom: 1px solid var(--truleyred);
+  color: var(--truley-lightred);
 }

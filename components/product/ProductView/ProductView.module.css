@@ -47,6 +47,10 @@
   }
 }
 
+.sidebar table {
+  width: 100% !important;
+}
+
 .imageContainer {
   & > div {
     @apply h-full;
@@ -73,11 +77,6 @@
   object-fit: contain;
   box-shadow: 3px 5px 9px rgba(0, 0, 0, 0.24);
   transition: ease-in-out 100ms all;
-  border-radius: 3px;
-}
-
-.thumbImageContainer Image {
-  border: 1px solid black;
 }
 
 .thumbImage {
@@ -85,9 +84,8 @@
 }
 
 .thumbImageContainer img:hover {
-  opacity: 0.8;
   cursor: pointer;
-  transform: scale(0.95);
+  transform: scale(1.2);
   box-shadow: none;
 }
 
@@ -103,7 +101,7 @@
   max-width: 550px;
   max-height: 550px;
   object-fit: contain;
-  transition: ease-in-out 125ms all;
+  transition: ease-in-out 100ms all;
   cursor: pointer;
 }
 
@@ -114,14 +112,12 @@
   max-width: 550px;
   max-height: 550px;
   object-fit: contain;
-  border-radius: 5px;
 }
 
 .selectedImageContainer:hover {
-  opacity: 0.8;
   cursor: pointer;
   box-shadow: none;
-  transform: scale(0.96);
+  transform: scale(1.03);
 }
 
 .img {
@@ -146,13 +142,13 @@
 }
 
 .btn {
-  text-align: center;
-  width: 350px;
-  border-radius: 24px;
+  height: 45px;
+  width: 100%;
   outline: none !important;
+  border-radius: 8px;
 }
 .btn:hover {
-  background-color: --truleyred;
+  background-color: var(--truley-lightred);
 }
 
 .breadContainer,
@@ -174,7 +170,7 @@
 
 .activeLink {
   padding-left: 5px;
-  color: --truleyred;
+  color: var(--truley-lightred);
   text-align: center;
 }
 

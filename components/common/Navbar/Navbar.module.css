@@ -1,21 +1,26 @@
 .root {
   @apply sticky top-0 bg-primary z-40 transition-all duration-150;
+  border-top: 3px solid var(--truleyred);
 }
 
 .link {
-  @apply inline-flex items-center text-primary leading-6 font-light transition ease-in-out duration-75 cursor-pointer text-accents-6;
+  @apply inline-flex items-center text-primary leading-6 font-light cursor-pointer text-accents-6;
+  transition: ease-in 100ms;
+  outline: none !important;
 }
 
 .mobilelink {
-  @apply inline-flex items-center my-2 text-primary leading-6 font-light transition ease-in-out duration-75 cursor-pointer text-accents-6;
+  @apply inline-flex items-center my-2 text-primary leading-6 font-light  cursor-pointer text-accents-6;
+  transition: ease-in 100ms;
+  outline: none !important;
 }
 
 .link:hover {
-  @apply text-accents-9;
+  color: var(--truley-lightred);
 }
 
 .mobilelink:hover {
-  @apply text-accents-9;
+  color: var(--truley-lightred);
 }
 
 .link:focus {
@@ -27,10 +32,12 @@
 }
 
 .logo {
-  @apply cursor-pointer transform duration-100 ease-in-out;
-
+  @apply cursor-pointer transform duration-200 ease-in-out;
+  border: 1px solid transparent;
+  border-radius: 8px;
   &:hover {
-    transform: scale(1.1);
+    border-radius: 8px;
+    border: 1px solid rgba(224, 0, 15, 0.2);
   }
 }
 
@@ -38,9 +45,11 @@
   display: none;
   height: 0px;
   transition: height ease 0.3s;
+  border-top: 2px solid var(--truley-lightred);
 }
 
 .contentShow {
+  transition: height ease 0.3s;
   display: flex;
   flex-direction: column;
 }

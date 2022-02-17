@@ -4,7 +4,7 @@
 }
 
 .root:focus {
-  @apply shadow-outline outline-none;
+  @apply outline-none;
 }
 
 .root[data-active] {

@@ -15,17 +15,16 @@
 
 .btn {
   margin: auto;
-  border: 1px solid #c1000c !important;
-  border-radius: 24px !important;
+  border: 1px solid var(--truleyred) !important;
   background: transparent !important;
-  color: #c1000c !important;
+  color: var(--truleyred) !important;
   outline: none !important;
   width: 350px;
-  border-radius: 24px;
+  border-radius: 8px !important;
 }
 
 .btn:hover {
-  background: #c1000c !important;
+  background: var(--truleyred) !important;
   color: white !important;
 }
 

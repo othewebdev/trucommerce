@@ -9,6 +9,21 @@ import throttle from 'lodash.throttle'
 const Navbar: FC = () => {
   const [hasScrolled, setHasScrolled] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
+  const ariaLabel = 'Truley Unique'
+  const pages = [
+    { name: 'Home', ariaLabel: 'Truley Unique Homepage', link: '/' },
+    { name: 'Shop', ariaLabel: 'Shop Truley Unique', link: '/search' },
+    {
+      name: 'FAQ',
+      ariaLabel: 'Frequently Asked Questions Truley Unique',
+      link: '/en-US/faq',
+    },
+    {
+      name: 'Contact',
+      ariaLabel: 'Contact Truley Unique',
+      link: '/en-US/contact',
+    },
+  ]
 
   useEffect(() => {
     setIsOpen(!isOpen)
@@ -31,68 +46,57 @@ const Navbar: FC = () => {
         <div className="relative px-4 grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 justify-between py-4 align-center md:py-6">
           <div className="flex items-center flex-1">
             <div className=" sm:block md:hidden lg:hidden">
-              <div onClick={() => setIsOpen(!isOpen)}>
-                <a className={s.logo} aria-label="Logo">
-                  <MenuBars />
-                </a>
-              </div>
-            </div>
-
-            <div className=" hidden md:block lg:block">
-              <div onClick={() => setIsOpen(!isOpen)}>
-                <a className={s.logo} href="/" aria-label="Logo">
+              <div
+                style={{
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 12,
+                }}
+              >
+                <a aria-label={ariaLabel} href="/">
                   <Logo />
                 </a>
+                <div onClick={() => setIsOpen(!isOpen)}>
+                  <MenuBars />
+                </div>
               </div>
             </div>
 
             <nav className="w-200 ml-4 hidden space-x-2 md:block lg:block">
-              <Link href="/search">
-                <a className={s.link}>Shop</a>
-              </Link>
-              <Link href="/en-US/faq">
-                <a className={s.link}>FAQ</a>
-              </Link>
-              <Link href="/en-US/contact">
-                <a className={s.link}>Contact</a>
-              </Link>
+              {pages.map((p) => (
+                <Link href={p.link}>
+                  <a aria-label={p.ariaLabel} className={s.link}>
+                    {p.name}
+                  </a>
+                </Link>
+              ))}
             </nav>
           </div>
-
           <div className="justify-center flex-1 hidden lg:flex">
             <Searchbar />
           </div>
-          <div className="flex justify-center flex-1  sm:block md:hidden lg:hidden ">
-            <a href="/" className="text-lg font-light">
-              Truley Unique
-            </a>
-          </div>
+          <div className="flex justify-center flex-1  sm:block md:hidden lg:hidden " />
           <div className="flex justify-end flex-1 space-x-8">
             <UserNav />
           </div>
         </div>
         <div className={isOpen ? `${s.content}` : `${s.contentShow}`}>
-          <nav className="flex w-full flex-col mb-4 items-center sm:block md:hidden lg:hidden">
-            <Link href="/">
-              <a onClick={() => setIsOpen(!isOpen)} className={s.mobilelink}>
-                Home
-              </a>
-            </Link>
-            <Link href="/search">
-              <a onClick={() => setIsOpen(!isOpen)} className={s.mobilelink}>
-                Shop
-              </a>
-            </Link>
-            <Link href="/en-US/faq">
-              <a onClick={() => setIsOpen(!isOpen)} className={s.mobilelink}>
-                FAQ
-              </a>
-            </Link>
-            <Link href="/en-US/contact">
-              <a onClick={() => setIsOpen(!isOpen)} className={s.mobilelink}>
-                Contact
-              </a>
-            </Link>
+          <nav
+            className="flex w-full flex-col mb-4 p-6 items-left sm:block md:hidden lg:hidden"
+            style={{ borderTop: '3px solid #ececec' }}
+          >
+            {pages.map((p) => (
+              <Link href={p.link}>
+                <a
+                  aria-label={p.ariaLabel}
+                  onClick={() => setIsOpen(!isOpen)}
+                  className={s.mobilelink}
+                >
+                  {p.name}
+                </a>
+              </Link>
+            ))}
           </nav>
         </div>
         <div className="flex pb-4 lg:px-6 lg:hidden">

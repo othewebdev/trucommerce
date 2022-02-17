@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { Modal } from '@components/common'
 import { Swatch } from '@components/product'
 import { Button, Container, Text } from '@components/ui'
@@ -46,6 +45,14 @@ const ProductView: FC<Props> = ({ product }) => {
   const variant =
     getCurrentVariant(product, choices) || product.variants.edges?.[0]
 
+  const createProductName = () => {
+    if (product.name.length > 98) {
+      return product.name.substring(0, 98) + '...'
+    } else {
+      return product.name
+    }
+  }
+
   const addToCart = async () => {
     setLoading(true)
 
@@ -71,9 +78,7 @@ const ProductView: FC<Props> = ({ product }) => {
       value: 'Product added to cart',
     })
   }
-  useEffect(() => {
-    console.log(choices)
-  }, [choices])
+
   return (
     <Container className={s.container} clean>
       <NextSeo
@@ -151,7 +156,7 @@ const ProductView: FC<Props> = ({ product }) => {
               <Link href="/search">{'Products' + ' ' + '/'}</Link>
               <div className={s.activeLink}>
                 <Link href={'/product' + product.path}>
-                  {' ' + product.name}
+                  {createProductName()}
                 </Link>
               </div>
             </div>
@@ -201,12 +206,13 @@ const ProductView: FC<Props> = ({ product }) => {
                     ? product.description
                     : `${product.description.substring(0, 425)}...`
                 }
+                style={{}}
               />
               <button onClick={() => setReadMore(!readMore)}>
-                {readMore ? '... Show Less' : 'Read More...'}
+                {readMore ? 'Show Less...' : 'Read More...'}
               </button>
             </div>
-            <div className="pb-14 break-words hidden sm:hidden md:hidden lg:block w-full">
+            <div className="pb-14 break-words hidden sm:hidden md:block lg:block w-full">
               <Text html={product.description} />
             </div>
           </section>

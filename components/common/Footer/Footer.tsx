@@ -1,5 +1,5 @@
 import { Othewebdev } from '@components/icons'
-import { Container, LogoAlt } from '@components/ui'
+import { Container, Logo } from '@components/ui'
 import type { Page } from '@framework/api/operations/get-all-pages'
 import getSlug from '@lib/get-slug'
 import cn from 'classnames'
@@ -29,7 +29,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
             <Link href="/">
               <a className="flex flex-initial items-center font-bold md:mr-24">
                 <span className=" mr-4 ">
-                  <LogoAlt />
+                  <Logo />
                 </span>
               </a>
             </Link>
