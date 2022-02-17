@@ -94,7 +94,7 @@
     "graphql": "^15.8.0",
     "next-unused": "^0.0.3",
     "postcss-flexbugs-fixes": "^4.2.1",
-    "postcss-preset-env": "^6.7.1",
+    "postcss-preset-env": "^7.4.1",
     "prettier": "^2.5.1",
     "read-more-react": "^1.0.10",
     "typescript": "^4.5.5"
