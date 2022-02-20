@@ -5,6 +5,7 @@ import { Logo, MenuBars, Container } from '@components/ui'
 import { Searchbar, UserNav } from '@components/common'
 import cn from 'classnames'
 import throttle from 'lodash.throttle'
+import Butterfly from '@components/ui/Butterfly'
 
 const Navbar: FC = () => {
   const [hasScrolled, setHasScrolled] = useState(false)
@@ -45,7 +46,7 @@ const Navbar: FC = () => {
       <Container>
         <div className="relative px-4 grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 justify-between py-4 align-center md:py-6">
           <div className="flex items-center flex-1">
-            <div className=" sm:block md:hidden lg:hidden">
+            <div className="sm:block md:hidden lg:hidden">
               <div
                 style={{
                   cursor: 'pointer',

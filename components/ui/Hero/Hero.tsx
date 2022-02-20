@@ -9,11 +9,12 @@ interface Props {
   className?: string
   headline: string
   description: string
+  subtitle?: string
   bg: string
   text: string
 }
 
-const Hero: FC<Props> = ({ headline, description, bg, text }) => {
+const Hero: FC<Props> = ({ headline, subtitle, description, bg, text }) => {
   const logGtag = () => {
     gtag.event({
       action: 'clicked_header_button',
@@ -24,8 +25,35 @@ const Hero: FC<Props> = ({ headline, description, bg, text }) => {
   }
   return (
     <div className={bg}>
-      <Container>
-        <div className="gridContainer">
+      <div className={s.heroSplit}>
+        <div className={s.section}>
+          <h2
+            style={{ textTransform: 'uppercase', lineHeight: '3.5rem' }}
+            className={`text-5xl text-center font-bold   ${text}`}
+          >
+            {description}
+          </h2>
+          <Link href="/search">
+            <Button onClick={logGtag} className={s.btn}>
+              Shop Now
+            </Button>
+          </Link>
+        </div>
+        <div className={s.section}>
+          <h2
+            style={{
+              textTransform: 'uppercase',
+              lineHeight: '3.5rem',
+            }}
+            className={`text-5xl text-center font-bold   ${text}`}
+          >
+            {headline}
+          </h2>
+          <p className={`text-center font-semibold   ${text}`}>{subtitle}</p>
+        </div>
+      </div>
+
+      {/* <div className="gridContainer">
           <div
             style={{
               display: 'flex',
@@ -36,12 +64,7 @@ const Hero: FC<Props> = ({ headline, description, bg, text }) => {
             <Butterfly />
           </div>
           <div style={{ textAlign: 'left' }} className={s.root}>
-            <h2
-              style={{ textTransform: 'capitalize', lineHeight: '3.5rem' }}
-              className={`text-6xl text-center font-bold   ${text}`}
-            >
-              {headline}
-            </h2>
+           
             <div className="flex flex-col justify-between">
               <h2
                 style={{ textTransform: 'capitalize', lineHeight: '2rem' }}
@@ -56,8 +79,7 @@ const Hero: FC<Props> = ({ headline, description, bg, text }) => {
               </Button>
             </Link>
           </div>
-        </div>
-      </Container>
+        </div> */}
     </div>
   )
 }

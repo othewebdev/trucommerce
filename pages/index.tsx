@@ -76,11 +76,12 @@ export default function Home({
         bg="bg-white"
         text="text-black"
         headline="Truley Unique"
-        description="face masks, earrings, organizers and more!"
+        description="Find a Unique style today"
+        subtitle="Face masks, earrings, cookie cutters and more!"
       />
 
       <Grid className="px-4" layout="normal">
-        {newestProducts.slice(0, 6).map(({ node }, i) => (
+        {newestProducts.slice(0, 9).map(({ node }, i) => (
           <ProductCard
             key={node.path}
             product={node}
