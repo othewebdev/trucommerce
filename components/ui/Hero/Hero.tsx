@@ -10,11 +10,9 @@ interface Props {
   headline: string
   description: string
   subtitle?: string
-  bg: string
-  text: string
 }
 
-const Hero: FC<Props> = ({ headline, subtitle, description, bg, text }) => {
+const Hero: FC<Props> = ({ headline, subtitle, description }) => {
   const logGtag = () => {
     gtag.event({
       action: 'clicked_header_button',
@@ -24,12 +22,12 @@ const Hero: FC<Props> = ({ headline, subtitle, description, bg, text }) => {
     })
   }
   return (
-    <div className={bg}>
+    <div>
       <div className={s.heroSplit}>
         <div className={s.section}>
           <h2
             style={{ textTransform: 'uppercase', lineHeight: '3.5rem' }}
-            className={`text-5xl text-center font-bold   ${text}`}
+            className={`text-5xl text-center font-bold   `}
           >
             {description}
           </h2>
@@ -45,11 +43,11 @@ const Hero: FC<Props> = ({ headline, subtitle, description, bg, text }) => {
               textTransform: 'uppercase',
               lineHeight: '3.5rem',
             }}
-            className={`text-5xl text-center font-bold   ${text}`}
+            className={`text-5xl text-center font-bold`}
           >
             {headline}
           </h2>
-          <p className={`text-center font-semibold   ${text}`}>{subtitle}</p>
+          <p className={`text-center font-semibold`}>{subtitle}</p>
         </div>
       </div>
 

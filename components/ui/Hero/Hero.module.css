@@ -43,6 +43,10 @@
   flex-direction: column;
 }
 
+.section h2 {
+  font-size: 48px;
+}
+
 .section:nth-child(1) {
   background-color: white;
 }

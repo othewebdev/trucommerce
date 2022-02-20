@@ -73,8 +73,6 @@ export default function Home({
   return (
     <div>
       <Hero
-        bg="bg-white"
-        text="text-black"
         headline="Truley Unique"
         description="Find a Unique style today"
         subtitle="Face masks, earrings, cookie cutters and more!"
